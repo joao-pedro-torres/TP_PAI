@@ -48,8 +48,6 @@ gui::gui(QWidget *parent) : QMainWindow(parent), ui(new Ui::gui) {
     // Set the widget as the status bar
     statusBar()->addWidget(statusWidget);
 
-    // ImageFolders = new QComboBox();
-
     // declare scenes where will be shown the loaded images
     OriginalImage = new QGraphicsScene(this);
     GrayscaleImage = new QGraphicsScene(this);
@@ -83,49 +81,25 @@ gui::gui(QWidget *parent) : QMainWindow(parent), ui(new Ui::gui) {
         }
     );
 
-    // std::vector<QTableWidget*> descriptors({
-    //     ui->HaralickDescriptors_01, ui->HaralickDescriptors_02,
-    //     ui->HaralickDescriptors_04, ui->HaralickDescriptors_08,
-    //     ui->HaralickDescriptors_16, ui->HaralickDescriptors_32
-    // });
+    ui->TableHu_G->horizontalHeader()->setFixedHeight(20);
+    ui->TableHu_H->horizontalHeader()->setFixedHeight(20);
+    ui->TableHu_S->horizontalHeader()->setFixedHeight(20);
+    ui->TableHu_V->horizontalHeader()->setFixedHeight(20);
+    for(size_t i = 0; i < 7; i++) {
+        ui->TableHu_G->setRowHeight(i, 7);
+        ui->TableHu_H->setRowHeight(i, 7);
+        ui->TableHu_S->setRowHeight(i, 7);
+        ui->TableHu_V->setRowHeight(i, 7);
+    }
 
-    // for(size_t i = 0; i < descriptors.size(); i++) {
-    //     descriptors[i] = new QTableWidget(3, 2, descriptors[i]);
-    //     descriptors[i]->horizontalHeader()->setVisible(false);
-    //     descriptors[i]->verticalHeader()->setVisible(false);
-
-    //     descriptors[i]->setItem(0, 0, new QTableWidgetItem("Entropy"));
-    //     descriptors[i]->setItem(1, 0, new QTableWidgetItem("Homogeneity"));
-    //     descriptors[i]->setItem(2, 0, new QTableWidgetItem("Contrast"));
-    //     descriptors[i]->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    // }
-
-    // std::vector<QTableWidget*> moments({
-    //     ui->HuGray, ui->HuH, ui->HuS, ui->HuV
-    // });
-
-    // for(size_t i = 0; i < moments.size(); i++) {
-    //     moments[i] = new QTableWidget(7, 2, moments[i]);
-    //     moments[i]->horizontalHeader()->setVisible(false);
-    //     moments[i]->verticalHeader()->setVisible(false);
-    //     moments[i]->setColumnWidth(0, 25);
-    //     moments[i]->setRowHeight(0, 7);
-    //     moments[i]->setRowHeight(1, 7);
-    //     moments[i]->setRowHeight(2, 7);
-    //     moments[i]->setRowHeight(3, 7);
-    //     moments[i]->setRowHeight(4, 7);
-    //     moments[i]->setRowHeight(5, 7);
-    //     moments[i]->setRowHeight(6, 7);
-
-    //     moments[i]->setItem(0, 0, new QTableWidgetItem("1º"));
-    //     moments[i]->setItem(1, 0, new QTableWidgetItem("2º"));
-    //     moments[i]->setItem(2, 0, new QTableWidgetItem("3º"));
-    //     moments[i]->setItem(3, 0, new QTableWidgetItem("4º"));
-    //     moments[i]->setItem(4, 0, new QTableWidgetItem("5º"));
-    //     moments[i]->setItem(5, 0, new QTableWidgetItem("6º"));
-    //     moments[i]->setItem(6, 0, new QTableWidgetItem("7º"));
-    //     moments[i]->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    // }
+    for(size_t i = 0; i < 3; i++) {
+        ui->TableHaralick01->setRowHeight(i, 27);
+        ui->TableHaralick02->setRowHeight(i, 27);
+        ui->TableHaralick04->setRowHeight(i, 27);
+        ui->TableHaralick08->setRowHeight(i, 27);
+        ui->TableHaralick16->setRowHeight(i, 27);
+        ui->TableHaralick32->setRowHeight(i, 27);
+    }
 }
 
 gui::~gui() {
@@ -226,56 +200,6 @@ void gui::viewImage() {
             co_ocurrence_matrices[i]->setScaledContents(Qt::KeepAspectRatio);
         }
 
-        // calculate haralick descriptors
-        // std::vector<QTableWidget*> haralick_descriptors({
-        //     ui->HaralickDescriptors_01, ui->HaralickDescriptors_02,
-        //     ui->HaralickDescriptors_04, ui->HaralickDescriptors_08,
-        //     ui->HaralickDescriptors_16, ui->HaralickDescriptors_32
-        // });
-
-        std::vector<QLabel*> entropy_descriptor({
-            ui->Entropy_01_val, ui->Entropy_02_val, ui->Entropy_04_val,
-            ui->Entropy_08_val, ui->Entropy_16_val, ui->Entropy_32_val
-        });
-        std::vector<QLabel*> homogeneity_descriptor({
-            ui->Homogeneity_01_val, ui->Homogeneity_02_val, ui->Homogeneity_04_val,
-            ui->Homogeneity_08_val, ui->Homogeneity_16_val, ui->Homogeneity_32_val
-        });
-        std::vector<QLabel*> contrast_descriptor({
-            ui->Contrast_01_val, ui->Contrast_02_val, ui->Contrast_04_val,
-            ui->Contrast_08_val, ui->Contrast_16_val, ui->Contrast_32_val
-        });
-
-        for(size_t i = 0; i < 6; i++) {
-            double entropy = calculateEntropy(matrices[i]);
-            double homogeneity = calculateHomogeneity(matrices[i]);
-            double contrast = calculateContrast(matrices[i]);
-
-            entropy_descriptor[i]->setText(QString::number(entropy));
-            homogeneity_descriptor[i]->setText(QString::number(homogeneity));
-            contrast_descriptor[i]->setText(QString::number(contrast));
-
-            // haralick_descriptors[i]->setEditTriggers(
-            //     QAbstractItemView::AllEditTriggers
-            // );
-
-            // haralick_descriptors[i]->clearContents();
-
-            // haralick_descriptors[i]->setItem(
-            //     0, 1, new QTableWidgetItem(QString::number(entropy, 'f', 2))
-            // );
-            // haralick_descriptors[i]->setItem(
-            //     1, 1, new QTableWidgetItem(QString::number(homogeneity, 'f', 2))
-            // );
-            // haralick_descriptors[i]->setItem(
-            //     2, 1, new QTableWidgetItem(QString::number(contrast, 'f', 2))
-            // );
-
-            // haralick_descriptors[i]->setEditTriggers(
-            //     QAbstractItemView::NoEditTriggers
-            // );
-        }
-
         // calculate invariant hu moments
         std::vector<std::vector<double>> hu = calculateHuMomentsHSV(QImage(
             selected_image
@@ -285,38 +209,88 @@ void gui::viewImage() {
             cvt_image_grayscale(selected_image).toImage()
         ));
 
-        // std::vector<QTableWidget*> hu_channels({
-        //     ui->HuH, ui->HuS, ui->HuV, ui->HuGray
-        // });
-
-        std::vector<QLabel*> hu_G({
-            ui->HuG_01_val, ui->HuG_02_val, ui->HuG_03_val, ui->HuG_04_val,
-            ui->HuG_05_val, ui->HuG_06_val, ui->HuG_07_val
-        });
-        std::vector<QLabel*> hu_H({
-            ui->HuH_01_val, ui->HuH_02_val, ui->HuH_03_val, ui->HuH_04_val,
-            ui->HuH_05_val, ui->HuH_06_val, ui->HuH_07_val
-        });
-        std::vector<QLabel*> hu_S({
-            ui->HuS_01_val, ui->HuS_02_val, ui->HuS_03_val, ui->HuS_04_val,
-            ui->HuS_05_val, ui->HuS_06_val, ui->HuS_07_val
-        });
-        std::vector<QLabel*> hu_V({
-            ui->HuV_01_val, ui->HuV_02_val, ui->HuV_03_val, ui->HuV_04_val,
-            ui->HuV_05_val, ui->HuV_06_val, ui->HuV_07_val
-        });
-
         for(size_t i = 0; i < 7; i++) {
-            hu_H[i]->setText(QString::number(hu[0][i]));
-            hu_S[i]->setText(QString::number(hu[1][i]));
-            hu_V[i]->setText(QString::number(hu[2][i]));
-            hu_G[i]->setText(QString::number(hu[3][i]));
+            ui->TableHu_G->setItem(i, 0, new QTableWidgetItem(
+                QString::number(hu[3][i]))
+            );
+            ui->TableHu_H->setItem(i, 0, new QTableWidgetItem(
+                QString::number(hu[0][i]))
+            );
+            ui->TableHu_S->setItem(i, 0, new QTableWidgetItem(
+                QString::number(hu[1][i]))
+            );
+            ui->TableHu_V->setItem(i, 0, new QTableWidgetItem(
+                QString::number(hu[2][i]))
+            );
         }
+
+        // calculate haralick descriptors
+        ui->TableHaralick01->setItem(0, 0, new QTableWidgetItem(
+           QString::number(calculateEntropy(matrices[0])))
+        );
+        ui->TableHaralick01->setItem(1, 0, new QTableWidgetItem(
+           QString::number(calculateHomogeneity(matrices[0])))
+        );
+        ui->TableHaralick01->setItem(2, 0, new QTableWidgetItem(
+           QString::number(calculateContrast(matrices[0])))
+        );
+
+        ui->TableHaralick02->setItem(0, 0, new QTableWidgetItem(
+           QString::number(calculateEntropy(matrices[1])))
+        );
+        ui->TableHaralick02->setItem(1, 0, new QTableWidgetItem(
+           QString::number(calculateHomogeneity(matrices[1])))
+        );
+        ui->TableHaralick02->setItem(2, 0, new QTableWidgetItem(
+           QString::number(calculateContrast(matrices[1])))
+        );
+
+        ui->TableHaralick04->setItem(0, 0, new QTableWidgetItem(
+           QString::number(calculateEntropy(matrices[2])))
+        );
+        ui->TableHaralick04->setItem(1, 0, new QTableWidgetItem(
+           QString::number(calculateHomogeneity(matrices[2])))
+        );
+        ui->TableHaralick04->setItem(2, 0, new QTableWidgetItem(
+           QString::number(calculateContrast(matrices[2])))
+        );
+
+        ui->TableHaralick08->setItem(0, 0, new QTableWidgetItem(
+           QString::number(calculateEntropy(matrices[3])))
+        );
+        ui->TableHaralick08->setItem(1, 0, new QTableWidgetItem(
+           QString::number(calculateHomogeneity(matrices[3])))
+        );
+        ui->TableHaralick08->setItem(2, 0, new QTableWidgetItem(
+           QString::number(calculateContrast(matrices[3])))
+        );
+
+        ui->TableHaralick16->setItem(0, 0, new QTableWidgetItem(
+           QString::number(calculateEntropy(matrices[4])))
+        );
+        ui->TableHaralick16->setItem(1, 0, new QTableWidgetItem(
+           QString::number(calculateHomogeneity(matrices[4])))
+        );
+        ui->TableHaralick16->setItem(2, 0, new QTableWidgetItem(
+           QString::number(calculateContrast(matrices[4])))
+        );
+
+        ui->TableHaralick32->setItem(0, 0, new QTableWidgetItem(
+           QString::number(calculateEntropy(matrices[5])))
+        );
+        ui->TableHaralick32->setItem(1, 0, new QTableWidgetItem(
+           QString::number(calculateHomogeneity(matrices[5])))
+        );
+        ui->TableHaralick32->setItem(2, 0, new QTableWidgetItem(
+           QString::number(calculateContrast(matrices[5])))
+        );
     }
 }
 
 // on clicking OpenImage button (in menu File)
 void gui::on_OpenImage_triggered() {
+    on_CloseImage_triggered();
+
     // open a FileDialog to select a png or a jpg file
     QString img_path = QFileDialog::getOpenFileName(
         this, "Open File", "", tr("PNG (*.png);;JPG (*.jpg)")
@@ -337,32 +311,36 @@ void gui::on_CloseImage_triggered() {
 
 // on clicking ZoomIn button
 void gui::on_ZoomInButton_clicked() {
-    // increase image scale in 5%
-    ui->OriginalViewer->scale(1.05, 1.05);
-    ui->GrayscaleViewer->scale(1.05, 1.05);
-    selected_image_size *= 1.05;
+    if(!selected_image.isEmpty()) {
+        // increase image scale in 5%
+        ui->OriginalViewer->scale(1.05, 1.05);
+        ui->GrayscaleViewer->scale(1.05, 1.05);
+        selected_image_size *= 1.05;
 
-    ui->ViewerPath->setText(selected_image);
-    ui->ViewerSize->setText(
-        QString::number(selected_image_size)
-        + " X " +
-        QString::number(selected_image_size)
-    );
+        ui->ViewerPath->setText(selected_image);
+        ui->ViewerSize->setText(
+            QString::number(selected_image_size)
+            + " X " +
+            QString::number(selected_image_size)
+        );
+    }
 }
 
 // on clicking ZoomOut button
 void gui::on_ZoomOutButton_clicked() {
-    // reduce image scale in 5%
-    ui->OriginalViewer->scale(0.95, 0.95);
-    ui->GrayscaleViewer->scale(0.95, 0.95);
-    selected_image_size *= 0.95;
+    if(!selected_image.isEmpty()) {
+        // reduce image scale in 5%
+        ui->OriginalViewer->scale(0.95, 0.95);
+        ui->GrayscaleViewer->scale(0.95, 0.95);
+        selected_image_size *= 0.95;
 
-    ui->ViewerPath->setText(selected_image);
-    ui->ViewerSize->setText(
-        QString::number(selected_image_size)
-        + " X " +
-        QString::number(selected_image_size)
-    );
+        ui->ViewerPath->setText(selected_image);
+        ui->ViewerSize->setText(
+            QString::number(selected_image_size)
+            + " X " +
+            QString::number(selected_image_size)
+        );
+    }
 }
 
 // on clicking ImportCSV button (in menu File)
@@ -404,10 +382,15 @@ void gui::on_CloseDataset_triggered() {
 // on clicking Start button (in main frame)
 void gui::on_StartButton_clicked() {
     int ready = 1;
+    images.clear();
+    ui->ImageFolders->clear();
+    loading_label->setVisible(true);
+    selected_image.clear();
 
     // get data and validate csv
     if(!dataset_path.isEmpty()
         && dataset_path != "" && !csv_path.isEmpty() && csv_path != "") {
+
         // get workspace where to store the images
         workspace = "/home/joaop/PUC/Curso_CC_6p/PAI/Trabalhos/out";
         // workspace = QFileDialog::getExistingDirectory(
@@ -553,6 +536,8 @@ void gui::on_StartButton_clicked() {
             // });
             // watcher.setFuture(future);
         }
+
+        loading_label->setVisible(false);
     }
 }
 

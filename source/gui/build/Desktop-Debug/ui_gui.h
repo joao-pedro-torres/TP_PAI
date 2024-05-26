@@ -17,6 +17,7 @@
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
@@ -24,6 +25,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -51,74 +53,10 @@ public:
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *Graphics;
     QHBoxLayout *HuMoments;
-    QVBoxLayout *HuView_Gray;
-    QLabel *HuGray_label;
-    QGridLayout *Hu_Gray;
-    QLabel *HuG_01_val;
-    QLabel *HuG_02;
-    QLabel *HuG_05;
-    QLabel *HuG_06;
-    QLabel *HuG_01;
-    QLabel *HuG_04;
-    QLabel *HuG_03;
-    QLabel *HuG_07;
-    QLabel *HuG_02_val;
-    QLabel *HuG_03_val;
-    QLabel *HuG_04_val;
-    QLabel *HuG_05_val;
-    QLabel *HuG_07_val;
-    QLabel *HuG_06_val;
-    QVBoxLayout *HuView_H;
-    QLabel *HuH_label;
-    QGridLayout *Hu_H;
-    QLabel *HuH_04;
-    QLabel *HuH_06_val;
-    QLabel *HuH_01;
-    QLabel *HuH_02_val;
-    QLabel *HuH_02;
-    QLabel *HuH_05_val;
-    QLabel *HuH_04_val;
-    QLabel *HuH_03_val;
-    QLabel *HuH_03;
-    QLabel *HuH_05;
-    QLabel *HuH_06;
-    QLabel *HuH_07_val;
-    QLabel *HuH_01_val;
-    QLabel *HuH_07;
-    QVBoxLayout *HuView_S;
-    QLabel *HuS_label;
-    QGridLayout *Hu_S;
-    QLabel *HuS_01_val;
-    QLabel *HuS_02;
-    QLabel *HuS_05;
-    QLabel *HuS_06;
-    QLabel *HuS_01;
-    QLabel *HuS_04;
-    QLabel *HuS_03;
-    QLabel *HuS_07;
-    QLabel *HuS_02_val;
-    QLabel *HuS_03_val;
-    QLabel *HuS_04_val;
-    QLabel *HuS_05_val;
-    QLabel *HuS_07_val;
-    QLabel *HuS_06_val;
-    QVBoxLayout *HuView_V;
-    QLabel *HuV_label;
-    QGridLayout *Hu_V;
-    QLabel *HuV_01_val;
-    QLabel *HuV_02;
-    QLabel *HuV_05;
-    QLabel *HuV_06;
-    QLabel *HuV_01;
-    QLabel *HuV_04;
-    QLabel *HuV_03;
-    QLabel *HuV_07;
-    QLabel *HuV_02_val;
-    QLabel *HuV_03_val;
-    QLabel *HuV_04_val;
-    QLabel *HuV_05_val;
-    QLabel *HuV_07_val;
-    QLabel *HuV_06_val;
+    QTableWidget *TableHu_G;
+    QTableWidget *TableHu_H;
+    QTableWidget *TableHu_S;
+    QTableWidget *TableHu_V;
     QLabel *HsvHistogramLabel;
     QLabel *HsvHistogramViewer;
     QLabel *GrayscaleHistogramLabel;
@@ -128,63 +66,27 @@ public:
     QLabel *HaralickDescriptors_label_01;
     QHBoxLayout *HaralickDescriptorsView_01;
     QLabel *CoOcurrenceMatrix_01;
-    QGridLayout *Haralick_01;
-    QLabel *Homogeneity_01_val;
-    QLabel *Entropy_01;
-    QLabel *Homogeneity_01;
-    QLabel *Entropy_01_val;
-    QLabel *Contras_01;
-    QLabel *Contrast_01_val;
+    QTableWidget *TableHaralick01;
     QLabel *HaralickDescriptors_label_02;
     QHBoxLayout *HaralickDescriptorsView_02;
     QLabel *CoOcurrenceMatrix_02;
-    QGridLayout *Haralick_02;
-    QLabel *Homogeneity_02_val;
-    QLabel *Entropy_02;
-    QLabel *Homogeneity_02;
-    QLabel *Entropy_02_val;
-    QLabel *Contras_02;
-    QLabel *Contrast_02_val;
+    QTableWidget *TableHaralick02;
     QLabel *HaralickDescriptors_label_04;
     QHBoxLayout *HaralickDescriptorsView_04;
     QLabel *CoOcurrenceMatrix_04;
-    QGridLayout *Haralick_04;
-    QLabel *Homogeneity_04_val;
-    QLabel *Entropy_04_val;
-    QLabel *Contras_04;
-    QLabel *Entropy_04;
-    QLabel *Contrast_04_val;
-    QLabel *Homogeneity_04;
+    QTableWidget *TableHaralick04;
     QLabel *HaralickDescriptors_label_08;
     QHBoxLayout *HaralickDescriptorsView_08;
     QLabel *CoOcurrenceMatrix_08;
-    QGridLayout *Haralick_08;
-    QLabel *Homogeneity_08_val;
-    QLabel *Entropy_08;
-    QLabel *Homogeneity_08;
-    QLabel *Entropy_08_val;
-    QLabel *Contras_08;
-    QLabel *Contrast_08_val;
+    QTableWidget *TableHaralick08;
     QLabel *HaralickDescriptors_label_16;
     QHBoxLayout *HaralickDescriptorsView_16;
     QLabel *CoOcurrenceMatrix_16;
-    QGridLayout *Haralick_16;
-    QLabel *Homogeneity_16_val;
-    QLabel *Entropy_16;
-    QLabel *Homogeneity_16;
-    QLabel *Entropy_16_val;
-    QLabel *Contras_16;
-    QLabel *Contrast_16_val;
+    QTableWidget *TableHaralick16;
     QLabel *HaralickDescriptors_label_32;
     QHBoxLayout *HaralickDescriptorsView_32;
     QLabel *CoOcurrenceMatrix_32;
-    QGridLayout *Haralick_32;
-    QLabel *Homogeneity_32_val;
-    QLabel *Entropy_32;
-    QLabel *Homogeneity_32;
-    QLabel *Entropy_32_val;
-    QLabel *Contras_32;
-    QLabel *Contrast_32_val;
+    QTableWidget *TableHaralick32;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout;
     QComboBox *ImageFolders;
@@ -252,458 +154,77 @@ public:
 
         ViewerSize = new QLabel(centralwidget);
         ViewerSize->setObjectName(QString::fromUtf8("ViewerSize"));
-        ViewerSize->setGeometry(QRect(10, 730, 161, 20));
+        ViewerSize->setGeometry(QRect(10, 737, 161, 20));
         ViewerSize->setStyleSheet(QString::fromUtf8("font: 9pt \"Noto Sans\";\n"
 "background-color: palete(window);"));
         ViewerSize->setAlignment(Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter);
         ViewerPath = new QLabel(centralwidget);
         ViewerPath->setObjectName(QString::fromUtf8("ViewerPath"));
-        ViewerPath->setGeometry(QRect(10, 710, 651, 20));
+        ViewerPath->setGeometry(QRect(10, 717, 651, 20));
         ViewerPath->setStyleSheet(QString::fromUtf8("font: 9pt \"Noto Sans\";\n"
 "background-color: palete(window);"));
         verticalLayoutWidget_2 = new QWidget(centralwidget);
         verticalLayoutWidget_2->setObjectName(QString::fromUtf8("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(700, 10, 482, 714));
+        verticalLayoutWidget_2->setGeometry(QRect(700, 10, 482, 701));
         Graphics = new QVBoxLayout(verticalLayoutWidget_2);
         Graphics->setObjectName(QString::fromUtf8("Graphics"));
         Graphics->setContentsMargins(0, 0, 0, 0);
         HuMoments = new QHBoxLayout();
         HuMoments->setObjectName(QString::fromUtf8("HuMoments"));
-        HuView_Gray = new QVBoxLayout();
-        HuView_Gray->setObjectName(QString::fromUtf8("HuView_Gray"));
-        HuGray_label = new QLabel(verticalLayoutWidget_2);
-        HuGray_label->setObjectName(QString::fromUtf8("HuGray_label"));
-        HuGray_label->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        HuView_Gray->addWidget(HuGray_label);
-
-        Hu_Gray = new QGridLayout();
-        Hu_Gray->setObjectName(QString::fromUtf8("Hu_Gray"));
-        Hu_Gray->setSizeConstraint(QLayout::SizeConstraint::SetFixedSize);
-        Hu_Gray->setContentsMargins(1, -1, 1, -1);
-        HuG_01_val = new QLabel(verticalLayoutWidget_2);
-        HuG_01_val->setObjectName(QString::fromUtf8("HuG_01_val"));
-        HuG_01_val->setAutoFillBackground(false);
-        HuG_01_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_Gray->addWidget(HuG_01_val, 0, 1, 1, 1);
-
-        HuG_02 = new QLabel(verticalLayoutWidget_2);
-        HuG_02->setObjectName(QString::fromUtf8("HuG_02"));
-        HuG_02->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_Gray->addWidget(HuG_02, 1, 0, 1, 1);
-
-        HuG_05 = new QLabel(verticalLayoutWidget_2);
-        HuG_05->setObjectName(QString::fromUtf8("HuG_05"));
-        HuG_05->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_Gray->addWidget(HuG_05, 4, 0, 1, 1);
-
-        HuG_06 = new QLabel(verticalLayoutWidget_2);
-        HuG_06->setObjectName(QString::fromUtf8("HuG_06"));
-        HuG_06->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_Gray->addWidget(HuG_06, 5, 0, 1, 1);
-
-        HuG_01 = new QLabel(verticalLayoutWidget_2);
-        HuG_01->setObjectName(QString::fromUtf8("HuG_01"));
-        HuG_01->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_Gray->addWidget(HuG_01, 0, 0, 1, 1);
-
-        HuG_04 = new QLabel(verticalLayoutWidget_2);
-        HuG_04->setObjectName(QString::fromUtf8("HuG_04"));
-        HuG_04->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_Gray->addWidget(HuG_04, 3, 0, 1, 1);
-
-        HuG_03 = new QLabel(verticalLayoutWidget_2);
-        HuG_03->setObjectName(QString::fromUtf8("HuG_03"));
-        HuG_03->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_Gray->addWidget(HuG_03, 2, 0, 1, 1);
-
-        HuG_07 = new QLabel(verticalLayoutWidget_2);
-        HuG_07->setObjectName(QString::fromUtf8("HuG_07"));
-        HuG_07->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_Gray->addWidget(HuG_07, 6, 0, 1, 1);
-
-        HuG_02_val = new QLabel(verticalLayoutWidget_2);
-        HuG_02_val->setObjectName(QString::fromUtf8("HuG_02_val"));
-        HuG_02_val->setAutoFillBackground(false);
-        HuG_02_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_Gray->addWidget(HuG_02_val, 1, 1, 1, 1);
-
-        HuG_03_val = new QLabel(verticalLayoutWidget_2);
-        HuG_03_val->setObjectName(QString::fromUtf8("HuG_03_val"));
-        HuG_03_val->setAutoFillBackground(false);
-        HuG_03_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_Gray->addWidget(HuG_03_val, 2, 1, 1, 1);
-
-        HuG_04_val = new QLabel(verticalLayoutWidget_2);
-        HuG_04_val->setObjectName(QString::fromUtf8("HuG_04_val"));
-        HuG_04_val->setAutoFillBackground(false);
-        HuG_04_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_Gray->addWidget(HuG_04_val, 3, 1, 1, 1);
-
-        HuG_05_val = new QLabel(verticalLayoutWidget_2);
-        HuG_05_val->setObjectName(QString::fromUtf8("HuG_05_val"));
-        HuG_05_val->setAutoFillBackground(false);
-        HuG_05_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_Gray->addWidget(HuG_05_val, 4, 1, 1, 1);
-
-        HuG_07_val = new QLabel(verticalLayoutWidget_2);
-        HuG_07_val->setObjectName(QString::fromUtf8("HuG_07_val"));
-        HuG_07_val->setAutoFillBackground(false);
-        HuG_07_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_Gray->addWidget(HuG_07_val, 6, 1, 1, 1);
-
-        HuG_06_val = new QLabel(verticalLayoutWidget_2);
-        HuG_06_val->setObjectName(QString::fromUtf8("HuG_06_val"));
-        HuG_06_val->setAutoFillBackground(false);
-        HuG_06_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_Gray->addWidget(HuG_06_val, 5, 1, 1, 1);
-
-
-        HuView_Gray->addLayout(Hu_Gray);
-
-
-        HuMoments->addLayout(HuView_Gray);
-
-        HuView_H = new QVBoxLayout();
-        HuView_H->setObjectName(QString::fromUtf8("HuView_H"));
-        HuH_label = new QLabel(verticalLayoutWidget_2);
-        HuH_label->setObjectName(QString::fromUtf8("HuH_label"));
-        HuH_label->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        HuView_H->addWidget(HuH_label);
-
-        Hu_H = new QGridLayout();
-        Hu_H->setObjectName(QString::fromUtf8("Hu_H"));
-        Hu_H->setSizeConstraint(QLayout::SizeConstraint::SetFixedSize);
-        Hu_H->setContentsMargins(1, -1, 1, -1);
-        HuH_04 = new QLabel(verticalLayoutWidget_2);
-        HuH_04->setObjectName(QString::fromUtf8("HuH_04"));
-        HuH_04->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_H->addWidget(HuH_04, 3, 0, 1, 1);
-
-        HuH_06_val = new QLabel(verticalLayoutWidget_2);
-        HuH_06_val->setObjectName(QString::fromUtf8("HuH_06_val"));
-        HuH_06_val->setAutoFillBackground(false);
-        HuH_06_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_H->addWidget(HuH_06_val, 5, 1, 1, 1);
-
-        HuH_01 = new QLabel(verticalLayoutWidget_2);
-        HuH_01->setObjectName(QString::fromUtf8("HuH_01"));
-        HuH_01->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_H->addWidget(HuH_01, 0, 0, 1, 1);
-
-        HuH_02_val = new QLabel(verticalLayoutWidget_2);
-        HuH_02_val->setObjectName(QString::fromUtf8("HuH_02_val"));
-        HuH_02_val->setAutoFillBackground(false);
-        HuH_02_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_H->addWidget(HuH_02_val, 1, 1, 1, 1);
-
-        HuH_02 = new QLabel(verticalLayoutWidget_2);
-        HuH_02->setObjectName(QString::fromUtf8("HuH_02"));
-        HuH_02->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_H->addWidget(HuH_02, 1, 0, 1, 1);
-
-        HuH_05_val = new QLabel(verticalLayoutWidget_2);
-        HuH_05_val->setObjectName(QString::fromUtf8("HuH_05_val"));
-        HuH_05_val->setAutoFillBackground(false);
-        HuH_05_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_H->addWidget(HuH_05_val, 4, 1, 1, 1);
-
-        HuH_04_val = new QLabel(verticalLayoutWidget_2);
-        HuH_04_val->setObjectName(QString::fromUtf8("HuH_04_val"));
-        HuH_04_val->setAutoFillBackground(false);
-        HuH_04_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_H->addWidget(HuH_04_val, 3, 1, 1, 1);
-
-        HuH_03_val = new QLabel(verticalLayoutWidget_2);
-        HuH_03_val->setObjectName(QString::fromUtf8("HuH_03_val"));
-        HuH_03_val->setAutoFillBackground(false);
-        HuH_03_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_H->addWidget(HuH_03_val, 2, 1, 1, 1);
-
-        HuH_03 = new QLabel(verticalLayoutWidget_2);
-        HuH_03->setObjectName(QString::fromUtf8("HuH_03"));
-        HuH_03->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_H->addWidget(HuH_03, 2, 0, 1, 1);
-
-        HuH_05 = new QLabel(verticalLayoutWidget_2);
-        HuH_05->setObjectName(QString::fromUtf8("HuH_05"));
-        HuH_05->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_H->addWidget(HuH_05, 4, 0, 1, 1);
-
-        HuH_06 = new QLabel(verticalLayoutWidget_2);
-        HuH_06->setObjectName(QString::fromUtf8("HuH_06"));
-        HuH_06->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_H->addWidget(HuH_06, 5, 0, 1, 1);
-
-        HuH_07_val = new QLabel(verticalLayoutWidget_2);
-        HuH_07_val->setObjectName(QString::fromUtf8("HuH_07_val"));
-        HuH_07_val->setAutoFillBackground(false);
-        HuH_07_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_H->addWidget(HuH_07_val, 6, 1, 1, 1);
-
-        HuH_01_val = new QLabel(verticalLayoutWidget_2);
-        HuH_01_val->setObjectName(QString::fromUtf8("HuH_01_val"));
-        HuH_01_val->setAutoFillBackground(false);
-        HuH_01_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_H->addWidget(HuH_01_val, 0, 1, 1, 1);
-
-        HuH_07 = new QLabel(verticalLayoutWidget_2);
-        HuH_07->setObjectName(QString::fromUtf8("HuH_07"));
-        HuH_07->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_H->addWidget(HuH_07, 6, 0, 1, 1);
-
-
-        HuView_H->addLayout(Hu_H);
-
-
-        HuMoments->addLayout(HuView_H);
-
-        HuView_S = new QVBoxLayout();
-        HuView_S->setObjectName(QString::fromUtf8("HuView_S"));
-        HuS_label = new QLabel(verticalLayoutWidget_2);
-        HuS_label->setObjectName(QString::fromUtf8("HuS_label"));
-        HuS_label->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        HuView_S->addWidget(HuS_label);
-
-        Hu_S = new QGridLayout();
-        Hu_S->setObjectName(QString::fromUtf8("Hu_S"));
-        Hu_S->setSizeConstraint(QLayout::SizeConstraint::SetFixedSize);
-        Hu_S->setContentsMargins(1, -1, 1, -1);
-        HuS_01_val = new QLabel(verticalLayoutWidget_2);
-        HuS_01_val->setObjectName(QString::fromUtf8("HuS_01_val"));
-        HuS_01_val->setAutoFillBackground(false);
-        HuS_01_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_S->addWidget(HuS_01_val, 0, 1, 1, 1);
-
-        HuS_02 = new QLabel(verticalLayoutWidget_2);
-        HuS_02->setObjectName(QString::fromUtf8("HuS_02"));
-        HuS_02->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_S->addWidget(HuS_02, 1, 0, 1, 1);
-
-        HuS_05 = new QLabel(verticalLayoutWidget_2);
-        HuS_05->setObjectName(QString::fromUtf8("HuS_05"));
-        HuS_05->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_S->addWidget(HuS_05, 4, 0, 1, 1);
-
-        HuS_06 = new QLabel(verticalLayoutWidget_2);
-        HuS_06->setObjectName(QString::fromUtf8("HuS_06"));
-        HuS_06->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_S->addWidget(HuS_06, 5, 0, 1, 1);
-
-        HuS_01 = new QLabel(verticalLayoutWidget_2);
-        HuS_01->setObjectName(QString::fromUtf8("HuS_01"));
-        HuS_01->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_S->addWidget(HuS_01, 0, 0, 1, 1);
-
-        HuS_04 = new QLabel(verticalLayoutWidget_2);
-        HuS_04->setObjectName(QString::fromUtf8("HuS_04"));
-        HuS_04->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_S->addWidget(HuS_04, 3, 0, 1, 1);
-
-        HuS_03 = new QLabel(verticalLayoutWidget_2);
-        HuS_03->setObjectName(QString::fromUtf8("HuS_03"));
-        HuS_03->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_S->addWidget(HuS_03, 2, 0, 1, 1);
-
-        HuS_07 = new QLabel(verticalLayoutWidget_2);
-        HuS_07->setObjectName(QString::fromUtf8("HuS_07"));
-        HuS_07->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_S->addWidget(HuS_07, 6, 0, 1, 1);
-
-        HuS_02_val = new QLabel(verticalLayoutWidget_2);
-        HuS_02_val->setObjectName(QString::fromUtf8("HuS_02_val"));
-        HuS_02_val->setAutoFillBackground(false);
-        HuS_02_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_S->addWidget(HuS_02_val, 1, 1, 1, 1);
-
-        HuS_03_val = new QLabel(verticalLayoutWidget_2);
-        HuS_03_val->setObjectName(QString::fromUtf8("HuS_03_val"));
-        HuS_03_val->setAutoFillBackground(false);
-        HuS_03_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_S->addWidget(HuS_03_val, 2, 1, 1, 1);
-
-        HuS_04_val = new QLabel(verticalLayoutWidget_2);
-        HuS_04_val->setObjectName(QString::fromUtf8("HuS_04_val"));
-        HuS_04_val->setAutoFillBackground(false);
-        HuS_04_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_S->addWidget(HuS_04_val, 3, 1, 1, 1);
-
-        HuS_05_val = new QLabel(verticalLayoutWidget_2);
-        HuS_05_val->setObjectName(QString::fromUtf8("HuS_05_val"));
-        HuS_05_val->setAutoFillBackground(false);
-        HuS_05_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_S->addWidget(HuS_05_val, 4, 1, 1, 1);
-
-        HuS_07_val = new QLabel(verticalLayoutWidget_2);
-        HuS_07_val->setObjectName(QString::fromUtf8("HuS_07_val"));
-        HuS_07_val->setAutoFillBackground(false);
-        HuS_07_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_S->addWidget(HuS_07_val, 6, 1, 1, 1);
-
-        HuS_06_val = new QLabel(verticalLayoutWidget_2);
-        HuS_06_val->setObjectName(QString::fromUtf8("HuS_06_val"));
-        HuS_06_val->setAutoFillBackground(false);
-        HuS_06_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_S->addWidget(HuS_06_val, 5, 1, 1, 1);
-
-
-        HuView_S->addLayout(Hu_S);
-
-
-        HuMoments->addLayout(HuView_S);
-
-        HuView_V = new QVBoxLayout();
-        HuView_V->setObjectName(QString::fromUtf8("HuView_V"));
-        HuV_label = new QLabel(verticalLayoutWidget_2);
-        HuV_label->setObjectName(QString::fromUtf8("HuV_label"));
-        HuV_label->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        HuView_V->addWidget(HuV_label);
-
-        Hu_V = new QGridLayout();
-        Hu_V->setObjectName(QString::fromUtf8("Hu_V"));
-        Hu_V->setSizeConstraint(QLayout::SizeConstraint::SetFixedSize);
-        Hu_V->setContentsMargins(1, -1, 1, -1);
-        HuV_01_val = new QLabel(verticalLayoutWidget_2);
-        HuV_01_val->setObjectName(QString::fromUtf8("HuV_01_val"));
-        HuV_01_val->setAutoFillBackground(false);
-        HuV_01_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_V->addWidget(HuV_01_val, 0, 1, 1, 1);
-
-        HuV_02 = new QLabel(verticalLayoutWidget_2);
-        HuV_02->setObjectName(QString::fromUtf8("HuV_02"));
-        HuV_02->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_V->addWidget(HuV_02, 1, 0, 1, 1);
-
-        HuV_05 = new QLabel(verticalLayoutWidget_2);
-        HuV_05->setObjectName(QString::fromUtf8("HuV_05"));
-        HuV_05->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_V->addWidget(HuV_05, 4, 0, 1, 1);
-
-        HuV_06 = new QLabel(verticalLayoutWidget_2);
-        HuV_06->setObjectName(QString::fromUtf8("HuV_06"));
-        HuV_06->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_V->addWidget(HuV_06, 5, 0, 1, 1);
-
-        HuV_01 = new QLabel(verticalLayoutWidget_2);
-        HuV_01->setObjectName(QString::fromUtf8("HuV_01"));
-        HuV_01->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_V->addWidget(HuV_01, 0, 0, 1, 1);
-
-        HuV_04 = new QLabel(verticalLayoutWidget_2);
-        HuV_04->setObjectName(QString::fromUtf8("HuV_04"));
-        HuV_04->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_V->addWidget(HuV_04, 3, 0, 1, 1);
-
-        HuV_03 = new QLabel(verticalLayoutWidget_2);
-        HuV_03->setObjectName(QString::fromUtf8("HuV_03"));
-        HuV_03->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_V->addWidget(HuV_03, 2, 0, 1, 1);
-
-        HuV_07 = new QLabel(verticalLayoutWidget_2);
-        HuV_07->setObjectName(QString::fromUtf8("HuV_07"));
-        HuV_07->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        Hu_V->addWidget(HuV_07, 6, 0, 1, 1);
-
-        HuV_02_val = new QLabel(verticalLayoutWidget_2);
-        HuV_02_val->setObjectName(QString::fromUtf8("HuV_02_val"));
-        HuV_02_val->setAutoFillBackground(false);
-        HuV_02_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_V->addWidget(HuV_02_val, 1, 1, 1, 1);
-
-        HuV_03_val = new QLabel(verticalLayoutWidget_2);
-        HuV_03_val->setObjectName(QString::fromUtf8("HuV_03_val"));
-        HuV_03_val->setAutoFillBackground(false);
-        HuV_03_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_V->addWidget(HuV_03_val, 2, 1, 1, 1);
-
-        HuV_04_val = new QLabel(verticalLayoutWidget_2);
-        HuV_04_val->setObjectName(QString::fromUtf8("HuV_04_val"));
-        HuV_04_val->setAutoFillBackground(false);
-        HuV_04_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_V->addWidget(HuV_04_val, 3, 1, 1, 1);
-
-        HuV_05_val = new QLabel(verticalLayoutWidget_2);
-        HuV_05_val->setObjectName(QString::fromUtf8("HuV_05_val"));
-        HuV_05_val->setAutoFillBackground(false);
-        HuV_05_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_V->addWidget(HuV_05_val, 4, 1, 1, 1);
-
-        HuV_07_val = new QLabel(verticalLayoutWidget_2);
-        HuV_07_val->setObjectName(QString::fromUtf8("HuV_07_val"));
-        HuV_07_val->setAutoFillBackground(false);
-        HuV_07_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_V->addWidget(HuV_07_val, 6, 1, 1, 1);
-
-        HuV_06_val = new QLabel(verticalLayoutWidget_2);
-        HuV_06_val->setObjectName(QString::fromUtf8("HuV_06_val"));
-        HuV_06_val->setAutoFillBackground(false);
-        HuV_06_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Hu_V->addWidget(HuV_06_val, 5, 1, 1, 1);
-
-
-        HuView_V->addLayout(Hu_V);
-
-
-        HuMoments->addLayout(HuView_V);
+        TableHu_G = new QTableWidget(verticalLayoutWidget_2);
+        if (TableHu_G->columnCount() < 1)
+            TableHu_G->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        TableHu_G->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        if (TableHu_G->rowCount() < 7)
+            TableHu_G->setRowCount(7);
+        TableHu_G->setObjectName(QString::fromUtf8("TableHu_G"));
+        TableHu_G->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        TableHu_G->setSelectionMode(QAbstractItemView::SelectionMode::NoSelection);
+
+        HuMoments->addWidget(TableHu_G);
+
+        TableHu_H = new QTableWidget(verticalLayoutWidget_2);
+        if (TableHu_H->columnCount() < 1)
+            TableHu_H->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        TableHu_H->setHorizontalHeaderItem(0, __qtablewidgetitem1);
+        if (TableHu_H->rowCount() < 7)
+            TableHu_H->setRowCount(7);
+        TableHu_H->setObjectName(QString::fromUtf8("TableHu_H"));
+        TableHu_H->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        TableHu_H->setSelectionMode(QAbstractItemView::SelectionMode::NoSelection);
+
+        HuMoments->addWidget(TableHu_H);
+
+        TableHu_S = new QTableWidget(verticalLayoutWidget_2);
+        if (TableHu_S->columnCount() < 1)
+            TableHu_S->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        TableHu_S->setHorizontalHeaderItem(0, __qtablewidgetitem2);
+        if (TableHu_S->rowCount() < 7)
+            TableHu_S->setRowCount(7);
+        TableHu_S->setObjectName(QString::fromUtf8("TableHu_S"));
+        TableHu_S->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        TableHu_S->setSelectionMode(QAbstractItemView::SelectionMode::NoSelection);
+
+        HuMoments->addWidget(TableHu_S);
+
+        TableHu_V = new QTableWidget(verticalLayoutWidget_2);
+        if (TableHu_V->columnCount() < 1)
+            TableHu_V->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        TableHu_V->setHorizontalHeaderItem(0, __qtablewidgetitem3);
+        if (TableHu_V->rowCount() < 7)
+            TableHu_V->setRowCount(7);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        __qtablewidgetitem4->setFlags(Qt::ItemIsSelectable|Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
+        TableHu_V->setItem(0, 0, __qtablewidgetitem4);
+        TableHu_V->setObjectName(QString::fromUtf8("TableHu_V"));
+        TableHu_V->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        TableHu_V->setSelectionMode(QAbstractItemView::SelectionMode::NoSelection);
+
+        HuMoments->addWidget(TableHu_V);
 
 
         Graphics->addLayout(HuMoments);
@@ -791,58 +312,25 @@ public:
 
         HaralickDescriptorsView_01->addWidget(CoOcurrenceMatrix_01);
 
-        Haralick_01 = new QGridLayout();
-        Haralick_01->setObjectName(QString::fromUtf8("Haralick_01"));
-        Homogeneity_01_val = new QLabel(verticalLayoutWidget);
-        Homogeneity_01_val->setObjectName(QString::fromUtf8("Homogeneity_01_val"));
-        QFont font1;
-        Homogeneity_01_val->setFont(font1);
-        Homogeneity_01_val->setFrameShape(QFrame::Shape::NoFrame);
-        Homogeneity_01_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
+        TableHaralick01 = new QTableWidget(verticalLayoutWidget);
+        if (TableHaralick01->columnCount() < 1)
+            TableHaralick01->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        TableHaralick01->setHorizontalHeaderItem(0, __qtablewidgetitem5);
+        if (TableHaralick01->rowCount() < 3)
+            TableHaralick01->setRowCount(3);
+        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        TableHaralick01->setVerticalHeaderItem(0, __qtablewidgetitem6);
+        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        TableHaralick01->setVerticalHeaderItem(1, __qtablewidgetitem7);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        TableHaralick01->setVerticalHeaderItem(2, __qtablewidgetitem8);
+        TableHaralick01->setObjectName(QString::fromUtf8("TableHaralick01"));
+        TableHaralick01->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        TableHaralick01->setSelectionMode(QAbstractItemView::SelectionMode::NoSelection);
+        TableHaralick01->horizontalHeader()->setVisible(false);
 
-        Haralick_01->addWidget(Homogeneity_01_val, 1, 1, 1, 1);
-
-        Entropy_01 = new QLabel(verticalLayoutWidget);
-        Entropy_01->setObjectName(QString::fromUtf8("Entropy_01"));
-        Entropy_01->setFont(font1);
-        Entropy_01->setFrameShape(QFrame::Shape::NoFrame);
-        Entropy_01->setFrameShadow(QFrame::Shadow::Plain);
-        Entropy_01->setLineWidth(1);
-
-        Haralick_01->addWidget(Entropy_01, 0, 0, 1, 1);
-
-        Homogeneity_01 = new QLabel(verticalLayoutWidget);
-        Homogeneity_01->setObjectName(QString::fromUtf8("Homogeneity_01"));
-        Homogeneity_01->setFont(font1);
-        Homogeneity_01->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_01->addWidget(Homogeneity_01, 1, 0, 1, 1);
-
-        Entropy_01_val = new QLabel(verticalLayoutWidget);
-        Entropy_01_val->setObjectName(QString::fromUtf8("Entropy_01_val"));
-        Entropy_01_val->setFont(font1);
-        Entropy_01_val->setFrameShape(QFrame::Shape::NoFrame);
-        Entropy_01_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Haralick_01->addWidget(Entropy_01_val, 0, 1, 1, 1);
-
-        Contras_01 = new QLabel(verticalLayoutWidget);
-        Contras_01->setObjectName(QString::fromUtf8("Contras_01"));
-        Contras_01->setFont(font1);
-        Contras_01->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_01->addWidget(Contras_01, 2, 0, 1, 1);
-
-        Contrast_01_val = new QLabel(verticalLayoutWidget);
-        Contrast_01_val->setObjectName(QString::fromUtf8("Contrast_01_val"));
-        Contrast_01_val->setFont(font1);
-        Contrast_01_val->setFrameShape(QFrame::Shape::NoFrame);
-        Contrast_01_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Haralick_01->addWidget(Contrast_01_val, 2, 1, 1, 1);
-
-
-        HaralickDescriptorsView_01->addLayout(Haralick_01);
+        HaralickDescriptorsView_01->addWidget(TableHaralick01);
 
 
         HaralickDescriptors->addLayout(HaralickDescriptorsView_01);
@@ -872,57 +360,25 @@ public:
 
         HaralickDescriptorsView_02->addWidget(CoOcurrenceMatrix_02);
 
-        Haralick_02 = new QGridLayout();
-        Haralick_02->setObjectName(QString::fromUtf8("Haralick_02"));
-        Homogeneity_02_val = new QLabel(verticalLayoutWidget);
-        Homogeneity_02_val->setObjectName(QString::fromUtf8("Homogeneity_02_val"));
-        QFont font2;
-        font2.setPointSize(10);
-        Homogeneity_02_val->setFont(font2);
-        Homogeneity_02_val->setFrameShape(QFrame::Shape::NoFrame);
-        Homogeneity_02_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
+        TableHaralick02 = new QTableWidget(verticalLayoutWidget);
+        if (TableHaralick02->columnCount() < 1)
+            TableHaralick02->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        TableHaralick02->setHorizontalHeaderItem(0, __qtablewidgetitem9);
+        if (TableHaralick02->rowCount() < 3)
+            TableHaralick02->setRowCount(3);
+        QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
+        TableHaralick02->setVerticalHeaderItem(0, __qtablewidgetitem10);
+        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
+        TableHaralick02->setVerticalHeaderItem(1, __qtablewidgetitem11);
+        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
+        TableHaralick02->setVerticalHeaderItem(2, __qtablewidgetitem12);
+        TableHaralick02->setObjectName(QString::fromUtf8("TableHaralick02"));
+        TableHaralick02->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        TableHaralick02->setSelectionMode(QAbstractItemView::SelectionMode::NoSelection);
+        TableHaralick02->horizontalHeader()->setVisible(false);
 
-        Haralick_02->addWidget(Homogeneity_02_val, 1, 1, 1, 1);
-
-        Entropy_02 = new QLabel(verticalLayoutWidget);
-        Entropy_02->setObjectName(QString::fromUtf8("Entropy_02"));
-        Entropy_02->setFont(font2);
-        Entropy_02->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_02->addWidget(Entropy_02, 0, 0, 1, 1);
-
-        Homogeneity_02 = new QLabel(verticalLayoutWidget);
-        Homogeneity_02->setObjectName(QString::fromUtf8("Homogeneity_02"));
-        Homogeneity_02->setFont(font2);
-        Homogeneity_02->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_02->addWidget(Homogeneity_02, 1, 0, 1, 1);
-
-        Entropy_02_val = new QLabel(verticalLayoutWidget);
-        Entropy_02_val->setObjectName(QString::fromUtf8("Entropy_02_val"));
-        Entropy_02_val->setFont(font2);
-        Entropy_02_val->setFrameShape(QFrame::Shape::NoFrame);
-        Entropy_02_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Haralick_02->addWidget(Entropy_02_val, 0, 1, 1, 1);
-
-        Contras_02 = new QLabel(verticalLayoutWidget);
-        Contras_02->setObjectName(QString::fromUtf8("Contras_02"));
-        Contras_02->setFont(font2);
-        Contras_02->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_02->addWidget(Contras_02, 2, 0, 1, 1);
-
-        Contrast_02_val = new QLabel(verticalLayoutWidget);
-        Contrast_02_val->setObjectName(QString::fromUtf8("Contrast_02_val"));
-        Contrast_02_val->setFont(font2);
-        Contrast_02_val->setFrameShape(QFrame::Shape::NoFrame);
-        Contrast_02_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Haralick_02->addWidget(Contrast_02_val, 2, 1, 1, 1);
-
-
-        HaralickDescriptorsView_02->addLayout(Haralick_02);
+        HaralickDescriptorsView_02->addWidget(TableHaralick02);
 
 
         HaralickDescriptors->addLayout(HaralickDescriptorsView_02);
@@ -952,55 +408,25 @@ public:
 
         HaralickDescriptorsView_04->addWidget(CoOcurrenceMatrix_04);
 
-        Haralick_04 = new QGridLayout();
-        Haralick_04->setObjectName(QString::fromUtf8("Haralick_04"));
-        Homogeneity_04_val = new QLabel(verticalLayoutWidget);
-        Homogeneity_04_val->setObjectName(QString::fromUtf8("Homogeneity_04_val"));
-        Homogeneity_04_val->setFont(font2);
-        Homogeneity_04_val->setFrameShape(QFrame::Shape::NoFrame);
-        Homogeneity_04_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
+        TableHaralick04 = new QTableWidget(verticalLayoutWidget);
+        if (TableHaralick04->columnCount() < 1)
+            TableHaralick04->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
+        TableHaralick04->setHorizontalHeaderItem(0, __qtablewidgetitem13);
+        if (TableHaralick04->rowCount() < 3)
+            TableHaralick04->setRowCount(3);
+        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
+        TableHaralick04->setVerticalHeaderItem(0, __qtablewidgetitem14);
+        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
+        TableHaralick04->setVerticalHeaderItem(1, __qtablewidgetitem15);
+        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
+        TableHaralick04->setVerticalHeaderItem(2, __qtablewidgetitem16);
+        TableHaralick04->setObjectName(QString::fromUtf8("TableHaralick04"));
+        TableHaralick04->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        TableHaralick04->setSelectionMode(QAbstractItemView::SelectionMode::NoSelection);
+        TableHaralick04->horizontalHeader()->setVisible(false);
 
-        Haralick_04->addWidget(Homogeneity_04_val, 1, 1, 1, 1);
-
-        Entropy_04_val = new QLabel(verticalLayoutWidget);
-        Entropy_04_val->setObjectName(QString::fromUtf8("Entropy_04_val"));
-        Entropy_04_val->setFont(font2);
-        Entropy_04_val->setFrameShape(QFrame::Shape::NoFrame);
-        Entropy_04_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Haralick_04->addWidget(Entropy_04_val, 0, 1, 1, 1);
-
-        Contras_04 = new QLabel(verticalLayoutWidget);
-        Contras_04->setObjectName(QString::fromUtf8("Contras_04"));
-        Contras_04->setFont(font2);
-        Contras_04->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_04->addWidget(Contras_04, 2, 0, 1, 1);
-
-        Entropy_04 = new QLabel(verticalLayoutWidget);
-        Entropy_04->setObjectName(QString::fromUtf8("Entropy_04"));
-        Entropy_04->setFont(font2);
-        Entropy_04->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_04->addWidget(Entropy_04, 0, 0, 1, 1);
-
-        Contrast_04_val = new QLabel(verticalLayoutWidget);
-        Contrast_04_val->setObjectName(QString::fromUtf8("Contrast_04_val"));
-        Contrast_04_val->setFont(font2);
-        Contrast_04_val->setFrameShape(QFrame::Shape::NoFrame);
-        Contrast_04_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Haralick_04->addWidget(Contrast_04_val, 2, 1, 1, 1);
-
-        Homogeneity_04 = new QLabel(verticalLayoutWidget);
-        Homogeneity_04->setObjectName(QString::fromUtf8("Homogeneity_04"));
-        Homogeneity_04->setFont(font2);
-        Homogeneity_04->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_04->addWidget(Homogeneity_04, 1, 0, 1, 1);
-
-
-        HaralickDescriptorsView_04->addLayout(Haralick_04);
+        HaralickDescriptorsView_04->addWidget(TableHaralick04);
 
 
         HaralickDescriptors->addLayout(HaralickDescriptorsView_04);
@@ -1030,55 +456,25 @@ public:
 
         HaralickDescriptorsView_08->addWidget(CoOcurrenceMatrix_08);
 
-        Haralick_08 = new QGridLayout();
-        Haralick_08->setObjectName(QString::fromUtf8("Haralick_08"));
-        Homogeneity_08_val = new QLabel(verticalLayoutWidget);
-        Homogeneity_08_val->setObjectName(QString::fromUtf8("Homogeneity_08_val"));
-        Homogeneity_08_val->setFont(font2);
-        Homogeneity_08_val->setFrameShape(QFrame::Shape::NoFrame);
-        Homogeneity_08_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
+        TableHaralick08 = new QTableWidget(verticalLayoutWidget);
+        if (TableHaralick08->columnCount() < 1)
+            TableHaralick08->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
+        TableHaralick08->setHorizontalHeaderItem(0, __qtablewidgetitem17);
+        if (TableHaralick08->rowCount() < 3)
+            TableHaralick08->setRowCount(3);
+        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
+        TableHaralick08->setVerticalHeaderItem(0, __qtablewidgetitem18);
+        QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
+        TableHaralick08->setVerticalHeaderItem(1, __qtablewidgetitem19);
+        QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
+        TableHaralick08->setVerticalHeaderItem(2, __qtablewidgetitem20);
+        TableHaralick08->setObjectName(QString::fromUtf8("TableHaralick08"));
+        TableHaralick08->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        TableHaralick08->setSelectionMode(QAbstractItemView::SelectionMode::NoSelection);
+        TableHaralick08->horizontalHeader()->setVisible(false);
 
-        Haralick_08->addWidget(Homogeneity_08_val, 1, 1, 1, 1);
-
-        Entropy_08 = new QLabel(verticalLayoutWidget);
-        Entropy_08->setObjectName(QString::fromUtf8("Entropy_08"));
-        Entropy_08->setFont(font2);
-        Entropy_08->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_08->addWidget(Entropy_08, 0, 0, 1, 1);
-
-        Homogeneity_08 = new QLabel(verticalLayoutWidget);
-        Homogeneity_08->setObjectName(QString::fromUtf8("Homogeneity_08"));
-        Homogeneity_08->setFont(font2);
-        Homogeneity_08->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_08->addWidget(Homogeneity_08, 1, 0, 1, 1);
-
-        Entropy_08_val = new QLabel(verticalLayoutWidget);
-        Entropy_08_val->setObjectName(QString::fromUtf8("Entropy_08_val"));
-        Entropy_08_val->setFont(font2);
-        Entropy_08_val->setFrameShape(QFrame::Shape::NoFrame);
-        Entropy_08_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Haralick_08->addWidget(Entropy_08_val, 0, 1, 1, 1);
-
-        Contras_08 = new QLabel(verticalLayoutWidget);
-        Contras_08->setObjectName(QString::fromUtf8("Contras_08"));
-        Contras_08->setFont(font2);
-        Contras_08->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_08->addWidget(Contras_08, 2, 0, 1, 1);
-
-        Contrast_08_val = new QLabel(verticalLayoutWidget);
-        Contrast_08_val->setObjectName(QString::fromUtf8("Contrast_08_val"));
-        Contrast_08_val->setFont(font2);
-        Contrast_08_val->setFrameShape(QFrame::Shape::NoFrame);
-        Contrast_08_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Haralick_08->addWidget(Contrast_08_val, 2, 1, 1, 1);
-
-
-        HaralickDescriptorsView_08->addLayout(Haralick_08);
+        HaralickDescriptorsView_08->addWidget(TableHaralick08);
 
 
         HaralickDescriptors->addLayout(HaralickDescriptorsView_08);
@@ -1108,55 +504,25 @@ public:
 
         HaralickDescriptorsView_16->addWidget(CoOcurrenceMatrix_16);
 
-        Haralick_16 = new QGridLayout();
-        Haralick_16->setObjectName(QString::fromUtf8("Haralick_16"));
-        Homogeneity_16_val = new QLabel(verticalLayoutWidget);
-        Homogeneity_16_val->setObjectName(QString::fromUtf8("Homogeneity_16_val"));
-        Homogeneity_16_val->setFont(font2);
-        Homogeneity_16_val->setFrameShape(QFrame::Shape::NoFrame);
-        Homogeneity_16_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
+        TableHaralick16 = new QTableWidget(verticalLayoutWidget);
+        if (TableHaralick16->columnCount() < 1)
+            TableHaralick16->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
+        TableHaralick16->setHorizontalHeaderItem(0, __qtablewidgetitem21);
+        if (TableHaralick16->rowCount() < 3)
+            TableHaralick16->setRowCount(3);
+        QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
+        TableHaralick16->setVerticalHeaderItem(0, __qtablewidgetitem22);
+        QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
+        TableHaralick16->setVerticalHeaderItem(1, __qtablewidgetitem23);
+        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
+        TableHaralick16->setVerticalHeaderItem(2, __qtablewidgetitem24);
+        TableHaralick16->setObjectName(QString::fromUtf8("TableHaralick16"));
+        TableHaralick16->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        TableHaralick16->setSelectionMode(QAbstractItemView::SelectionMode::NoSelection);
+        TableHaralick16->horizontalHeader()->setVisible(false);
 
-        Haralick_16->addWidget(Homogeneity_16_val, 1, 1, 1, 1);
-
-        Entropy_16 = new QLabel(verticalLayoutWidget);
-        Entropy_16->setObjectName(QString::fromUtf8("Entropy_16"));
-        Entropy_16->setFont(font2);
-        Entropy_16->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_16->addWidget(Entropy_16, 0, 0, 1, 1);
-
-        Homogeneity_16 = new QLabel(verticalLayoutWidget);
-        Homogeneity_16->setObjectName(QString::fromUtf8("Homogeneity_16"));
-        Homogeneity_16->setFont(font2);
-        Homogeneity_16->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_16->addWidget(Homogeneity_16, 1, 0, 1, 1);
-
-        Entropy_16_val = new QLabel(verticalLayoutWidget);
-        Entropy_16_val->setObjectName(QString::fromUtf8("Entropy_16_val"));
-        Entropy_16_val->setFont(font2);
-        Entropy_16_val->setFrameShape(QFrame::Shape::NoFrame);
-        Entropy_16_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Haralick_16->addWidget(Entropy_16_val, 0, 1, 1, 1);
-
-        Contras_16 = new QLabel(verticalLayoutWidget);
-        Contras_16->setObjectName(QString::fromUtf8("Contras_16"));
-        Contras_16->setFont(font2);
-        Contras_16->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_16->addWidget(Contras_16, 2, 0, 1, 1);
-
-        Contrast_16_val = new QLabel(verticalLayoutWidget);
-        Contrast_16_val->setObjectName(QString::fromUtf8("Contrast_16_val"));
-        Contrast_16_val->setFont(font2);
-        Contrast_16_val->setFrameShape(QFrame::Shape::NoFrame);
-        Contrast_16_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Haralick_16->addWidget(Contrast_16_val, 2, 1, 1, 1);
-
-
-        HaralickDescriptorsView_16->addLayout(Haralick_16);
+        HaralickDescriptorsView_16->addWidget(TableHaralick16);
 
 
         HaralickDescriptors->addLayout(HaralickDescriptorsView_16);
@@ -1186,55 +552,28 @@ public:
 
         HaralickDescriptorsView_32->addWidget(CoOcurrenceMatrix_32);
 
-        Haralick_32 = new QGridLayout();
-        Haralick_32->setObjectName(QString::fromUtf8("Haralick_32"));
-        Homogeneity_32_val = new QLabel(verticalLayoutWidget);
-        Homogeneity_32_val->setObjectName(QString::fromUtf8("Homogeneity_32_val"));
-        Homogeneity_32_val->setFont(font2);
-        Homogeneity_32_val->setFrameShape(QFrame::Shape::NoFrame);
-        Homogeneity_32_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
+        TableHaralick32 = new QTableWidget(verticalLayoutWidget);
+        if (TableHaralick32->columnCount() < 1)
+            TableHaralick32->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
+        TableHaralick32->setHorizontalHeaderItem(0, __qtablewidgetitem25);
+        if (TableHaralick32->rowCount() < 3)
+            TableHaralick32->setRowCount(3);
+        QTableWidgetItem *__qtablewidgetitem26 = new QTableWidgetItem();
+        TableHaralick32->setVerticalHeaderItem(0, __qtablewidgetitem26);
+        QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
+        TableHaralick32->setVerticalHeaderItem(1, __qtablewidgetitem27);
+        QTableWidgetItem *__qtablewidgetitem28 = new QTableWidgetItem();
+        TableHaralick32->setVerticalHeaderItem(2, __qtablewidgetitem28);
+        QTableWidgetItem *__qtablewidgetitem29 = new QTableWidgetItem();
+        __qtablewidgetitem29->setFlags(Qt::ItemIsSelectable|Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
+        TableHaralick32->setItem(0, 0, __qtablewidgetitem29);
+        TableHaralick32->setObjectName(QString::fromUtf8("TableHaralick32"));
+        TableHaralick32->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        TableHaralick32->setSelectionMode(QAbstractItemView::SelectionMode::NoSelection);
+        TableHaralick32->horizontalHeader()->setVisible(false);
 
-        Haralick_32->addWidget(Homogeneity_32_val, 1, 1, 1, 1);
-
-        Entropy_32 = new QLabel(verticalLayoutWidget);
-        Entropy_32->setObjectName(QString::fromUtf8("Entropy_32"));
-        Entropy_32->setFont(font2);
-        Entropy_32->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_32->addWidget(Entropy_32, 0, 0, 1, 1);
-
-        Homogeneity_32 = new QLabel(verticalLayoutWidget);
-        Homogeneity_32->setObjectName(QString::fromUtf8("Homogeneity_32"));
-        Homogeneity_32->setFont(font2);
-        Homogeneity_32->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_32->addWidget(Homogeneity_32, 1, 0, 1, 1);
-
-        Entropy_32_val = new QLabel(verticalLayoutWidget);
-        Entropy_32_val->setObjectName(QString::fromUtf8("Entropy_32_val"));
-        Entropy_32_val->setFont(font2);
-        Entropy_32_val->setFrameShape(QFrame::Shape::NoFrame);
-        Entropy_32_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Haralick_32->addWidget(Entropy_32_val, 0, 1, 1, 1);
-
-        Contras_32 = new QLabel(verticalLayoutWidget);
-        Contras_32->setObjectName(QString::fromUtf8("Contras_32"));
-        Contras_32->setFont(font2);
-        Contras_32->setFrameShape(QFrame::Shape::NoFrame);
-
-        Haralick_32->addWidget(Contras_32, 2, 0, 1, 1);
-
-        Contrast_32_val = new QLabel(verticalLayoutWidget);
-        Contrast_32_val->setObjectName(QString::fromUtf8("Contrast_32_val"));
-        Contrast_32_val->setFont(font2);
-        Contrast_32_val->setFrameShape(QFrame::Shape::NoFrame);
-        Contrast_32_val->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
-
-        Haralick_32->addWidget(Contrast_32_val, 2, 1, 1, 1);
-
-
-        HaralickDescriptorsView_32->addLayout(Haralick_32);
+        HaralickDescriptorsView_32->addWidget(TableHaralick32);
 
 
         HaralickDescriptors->addLayout(HaralickDescriptorsView_32);
@@ -1250,9 +589,9 @@ public:
         sizePolicy1.setHeightForWidth(ImageFolders->sizePolicy().hasHeightForWidth());
         ImageFolders->setSizePolicy(sizePolicy1);
         ImageFolders->setMinimumSize(QSize(200, 30));
-        QFont font3;
-        font3.setPointSize(12);
-        ImageFolders->setFont(font3);
+        QFont font1;
+        font1.setPointSize(12);
+        ImageFolders->setFont(font1);
 
         horizontalLayout->addWidget(ImageFolders);
 
@@ -1263,7 +602,7 @@ public:
         StartButton = new QPushButton(horizontalLayoutWidget_2);
         StartButton->setObjectName(QString::fromUtf8("StartButton"));
         StartButton->setMinimumSize(QSize(0, 30));
-        StartButton->setFont(font3);
+        StartButton->setFont(font1);
         StartButton->setStyleSheet(QString::fromUtf8("background-color: green"));
 
         Zoom->addWidget(StartButton);
@@ -1273,7 +612,7 @@ public:
         sizePolicy2.setHeightForWidth(ZoomInButton->sizePolicy().hasHeightForWidth());
         ZoomInButton->setSizePolicy(sizePolicy2);
         ZoomInButton->setMinimumSize(QSize(0, 30));
-        ZoomInButton->setFont(font3);
+        ZoomInButton->setFont(font1);
         QIcon icon(QIcon::fromTheme(QString::fromUtf8("zoom-in")));
         ZoomInButton->setIcon(icon);
 
@@ -1284,7 +623,7 @@ public:
         sizePolicy2.setHeightForWidth(ZoomOutButton->sizePolicy().hasHeightForWidth());
         ZoomOutButton->setSizePolicy(sizePolicy2);
         ZoomOutButton->setMinimumSize(QSize(0, 30));
-        ZoomOutButton->setFont(font3);
+        ZoomOutButton->setFont(font1);
         QIcon icon1(QIcon::fromTheme(QString::fromUtf8("zoom-out")));
         ZoomOutButton->setIcon(icon1);
 
@@ -1298,7 +637,7 @@ public:
         sizePolicy1.setHeightForWidth(Prev->sizePolicy().hasHeightForWidth());
         Prev->setSizePolicy(sizePolicy1);
         Prev->setMinimumSize(QSize(20, 30));
-        Prev->setFont(font3);
+        Prev->setFont(font1);
         QIcon icon2(QIcon::fromTheme(QString::fromUtf8("go-previous")));
         Prev->setIcon(icon2);
 
@@ -1309,7 +648,7 @@ public:
         sizePolicy1.setHeightForWidth(Next->sizePolicy().hasHeightForWidth());
         Next->setSizePolicy(sizePolicy1);
         Next->setMinimumSize(QSize(20, 30));
-        Next->setFont(font3);
+        Next->setFont(font1);
         QIcon icon3(QIcon::fromTheme(QString::fromUtf8("go-next")));
         Next->setIcon(icon3);
 
@@ -1325,7 +664,7 @@ public:
         menubar->setFont(font);
         menuLoad_Image = new QMenu(menubar);
         menuLoad_Image->setObjectName(QString::fromUtf8("menuLoad_Image"));
-        menuLoad_Image->setFont(font3);
+        menuLoad_Image->setFont(font1);
         menuLoad_Image->setTearOffEnabled(false);
         menuLoad_Image->setSeparatorsCollapsible(false);
         gui->setMenuBar(menubar);
@@ -1362,118 +701,88 @@ public:
         TabbedImageViewer->setTabText(TabbedImageViewer->indexOf(Grayscale), QCoreApplication::translate("gui", "Grayscale", nullptr));
         ViewerSize->setText(QCoreApplication::translate("gui", "Width X Height", nullptr));
         ViewerPath->setText(QCoreApplication::translate("gui", "Image path", nullptr));
-        HuGray_label->setText(QCoreApplication::translate("gui", "Grayscale", nullptr));
-        HuG_01_val->setText(QString());
-        HuG_02->setText(QCoreApplication::translate("gui", "2", nullptr));
-        HuG_05->setText(QCoreApplication::translate("gui", "5", nullptr));
-        HuG_06->setText(QCoreApplication::translate("gui", "6", nullptr));
-        HuG_01->setText(QCoreApplication::translate("gui", "1", nullptr));
-        HuG_04->setText(QCoreApplication::translate("gui", "4", nullptr));
-        HuG_03->setText(QCoreApplication::translate("gui", "3", nullptr));
-        HuG_07->setText(QCoreApplication::translate("gui", "7", nullptr));
-        HuG_02_val->setText(QString());
-        HuG_03_val->setText(QString());
-        HuG_04_val->setText(QString());
-        HuG_05_val->setText(QString());
-        HuG_07_val->setText(QString());
-        HuG_06_val->setText(QString());
-        HuH_label->setText(QCoreApplication::translate("gui", "Channel H", nullptr));
-        HuH_04->setText(QCoreApplication::translate("gui", "4", nullptr));
-        HuH_06_val->setText(QString());
-        HuH_01->setText(QCoreApplication::translate("gui", "1", nullptr));
-        HuH_02_val->setText(QString());
-        HuH_02->setText(QCoreApplication::translate("gui", "2", nullptr));
-        HuH_05_val->setText(QString());
-        HuH_04_val->setText(QString());
-        HuH_03_val->setText(QString());
-        HuH_03->setText(QCoreApplication::translate("gui", "3", nullptr));
-        HuH_05->setText(QCoreApplication::translate("gui", "5", nullptr));
-        HuH_06->setText(QCoreApplication::translate("gui", "6", nullptr));
-        HuH_07_val->setText(QString());
-        HuH_01_val->setText(QString());
-        HuH_07->setText(QCoreApplication::translate("gui", "7", nullptr));
-        HuS_label->setText(QCoreApplication::translate("gui", "Channel S", nullptr));
-        HuS_01_val->setText(QString());
-        HuS_02->setText(QCoreApplication::translate("gui", "2", nullptr));
-        HuS_05->setText(QCoreApplication::translate("gui", "5", nullptr));
-        HuS_06->setText(QCoreApplication::translate("gui", "6", nullptr));
-        HuS_01->setText(QCoreApplication::translate("gui", "1", nullptr));
-        HuS_04->setText(QCoreApplication::translate("gui", "4", nullptr));
-        HuS_03->setText(QCoreApplication::translate("gui", "3", nullptr));
-        HuS_07->setText(QCoreApplication::translate("gui", "7", nullptr));
-        HuS_02_val->setText(QString());
-        HuS_03_val->setText(QString());
-        HuS_04_val->setText(QString());
-        HuS_05_val->setText(QString());
-        HuS_07_val->setText(QString());
-        HuS_06_val->setText(QString());
-        HuV_label->setText(QCoreApplication::translate("gui", "Channel V", nullptr));
-        HuV_01_val->setText(QString());
-        HuV_02->setText(QCoreApplication::translate("gui", "2", nullptr));
-        HuV_05->setText(QCoreApplication::translate("gui", "5", nullptr));
-        HuV_06->setText(QCoreApplication::translate("gui", "6", nullptr));
-        HuV_01->setText(QCoreApplication::translate("gui", "1", nullptr));
-        HuV_04->setText(QCoreApplication::translate("gui", "4", nullptr));
-        HuV_03->setText(QCoreApplication::translate("gui", "3", nullptr));
-        HuV_07->setText(QCoreApplication::translate("gui", "7", nullptr));
-        HuV_02_val->setText(QString());
-        HuV_03_val->setText(QString());
-        HuV_04_val->setText(QString());
-        HuV_05_val->setText(QString());
-        HuV_07_val->setText(QString());
-        HuV_06_val->setText(QString());
+        QTableWidgetItem *___qtablewidgetitem = TableHu_G->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QCoreApplication::translate("gui", "Channel G", nullptr));
+        QTableWidgetItem *___qtablewidgetitem1 = TableHu_H->horizontalHeaderItem(0);
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("gui", "Channel H", nullptr));
+        QTableWidgetItem *___qtablewidgetitem2 = TableHu_S->horizontalHeaderItem(0);
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("gui", "Channel S", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = TableHu_V->horizontalHeaderItem(0);
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("gui", "Channel V", nullptr));
+
+        const bool __sortingEnabled = TableHu_V->isSortingEnabled();
+        TableHu_V->setSortingEnabled(false);
+        TableHu_V->setSortingEnabled(__sortingEnabled);
+
         HsvHistogramLabel->setText(QCoreApplication::translate("gui", "HSV HISTOGRAM", nullptr));
         HsvHistogramViewer->setText(QString());
         GrayscaleHistogramLabel->setText(QCoreApplication::translate("gui", "GRAYSCALE HISTOGRAM", nullptr));
         GrayscaleHistogramViewer->setText(QString());
         HaralickDescriptors_label_01->setText(QCoreApplication::translate("gui", "Co-ocurrence Matrix (01x01)", nullptr));
         CoOcurrenceMatrix_01->setText(QString());
-        Homogeneity_01_val->setText(QString());
-        Entropy_01->setText(QCoreApplication::translate("gui", "Entropy:", nullptr));
-        Homogeneity_01->setText(QCoreApplication::translate("gui", "Homogeneity:", nullptr));
-        Entropy_01_val->setText(QString());
-        Contras_01->setText(QCoreApplication::translate("gui", "Contrast:", nullptr));
-        Contrast_01_val->setText(QString());
+        QTableWidgetItem *___qtablewidgetitem4 = TableHaralick01->horizontalHeaderItem(0);
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("gui", "Value", nullptr));
+        QTableWidgetItem *___qtablewidgetitem5 = TableHaralick01->verticalHeaderItem(0);
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("gui", "Entropy", nullptr));
+        QTableWidgetItem *___qtablewidgetitem6 = TableHaralick01->verticalHeaderItem(1);
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("gui", "Homogeneity", nullptr));
+        QTableWidgetItem *___qtablewidgetitem7 = TableHaralick01->verticalHeaderItem(2);
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("gui", "Constrast", nullptr));
         HaralickDescriptors_label_02->setText(QCoreApplication::translate("gui", "Co-ocurrence Matrix (02x02)", nullptr));
         CoOcurrenceMatrix_02->setText(QString());
-        Homogeneity_02_val->setText(QString());
-        Entropy_02->setText(QCoreApplication::translate("gui", "Entropy:", nullptr));
-        Homogeneity_02->setText(QCoreApplication::translate("gui", "Homogeneity:", nullptr));
-        Entropy_02_val->setText(QString());
-        Contras_02->setText(QCoreApplication::translate("gui", "Contrast:", nullptr));
-        Contrast_02_val->setText(QString());
+        QTableWidgetItem *___qtablewidgetitem8 = TableHaralick02->horizontalHeaderItem(0);
+        ___qtablewidgetitem8->setText(QCoreApplication::translate("gui", "Value", nullptr));
+        QTableWidgetItem *___qtablewidgetitem9 = TableHaralick02->verticalHeaderItem(0);
+        ___qtablewidgetitem9->setText(QCoreApplication::translate("gui", "Entropy", nullptr));
+        QTableWidgetItem *___qtablewidgetitem10 = TableHaralick02->verticalHeaderItem(1);
+        ___qtablewidgetitem10->setText(QCoreApplication::translate("gui", "Homogeneity", nullptr));
+        QTableWidgetItem *___qtablewidgetitem11 = TableHaralick02->verticalHeaderItem(2);
+        ___qtablewidgetitem11->setText(QCoreApplication::translate("gui", "Constrast", nullptr));
         HaralickDescriptors_label_04->setText(QCoreApplication::translate("gui", "Co-ocurrence Matrix (04x04)", nullptr));
         CoOcurrenceMatrix_04->setText(QString());
-        Homogeneity_04_val->setText(QString());
-        Entropy_04_val->setText(QString());
-        Contras_04->setText(QCoreApplication::translate("gui", "Contrast:", nullptr));
-        Entropy_04->setText(QCoreApplication::translate("gui", "Entropy:", nullptr));
-        Contrast_04_val->setText(QString());
-        Homogeneity_04->setText(QCoreApplication::translate("gui", "Homogeneity:", nullptr));
+        QTableWidgetItem *___qtablewidgetitem12 = TableHaralick04->horizontalHeaderItem(0);
+        ___qtablewidgetitem12->setText(QCoreApplication::translate("gui", "Value", nullptr));
+        QTableWidgetItem *___qtablewidgetitem13 = TableHaralick04->verticalHeaderItem(0);
+        ___qtablewidgetitem13->setText(QCoreApplication::translate("gui", "Entropy", nullptr));
+        QTableWidgetItem *___qtablewidgetitem14 = TableHaralick04->verticalHeaderItem(1);
+        ___qtablewidgetitem14->setText(QCoreApplication::translate("gui", "Homogeneity", nullptr));
+        QTableWidgetItem *___qtablewidgetitem15 = TableHaralick04->verticalHeaderItem(2);
+        ___qtablewidgetitem15->setText(QCoreApplication::translate("gui", "Constrast", nullptr));
         HaralickDescriptors_label_08->setText(QCoreApplication::translate("gui", "Co-ocurrence Matrix (08x08)", nullptr));
         CoOcurrenceMatrix_08->setText(QString());
-        Homogeneity_08_val->setText(QString());
-        Entropy_08->setText(QCoreApplication::translate("gui", "Entropy:", nullptr));
-        Homogeneity_08->setText(QCoreApplication::translate("gui", "Homogeneity:", nullptr));
-        Entropy_08_val->setText(QString());
-        Contras_08->setText(QCoreApplication::translate("gui", "Contrast:", nullptr));
-        Contrast_08_val->setText(QString());
+        QTableWidgetItem *___qtablewidgetitem16 = TableHaralick08->horizontalHeaderItem(0);
+        ___qtablewidgetitem16->setText(QCoreApplication::translate("gui", "Value", nullptr));
+        QTableWidgetItem *___qtablewidgetitem17 = TableHaralick08->verticalHeaderItem(0);
+        ___qtablewidgetitem17->setText(QCoreApplication::translate("gui", "Entropy", nullptr));
+        QTableWidgetItem *___qtablewidgetitem18 = TableHaralick08->verticalHeaderItem(1);
+        ___qtablewidgetitem18->setText(QCoreApplication::translate("gui", "Homogeneity", nullptr));
+        QTableWidgetItem *___qtablewidgetitem19 = TableHaralick08->verticalHeaderItem(2);
+        ___qtablewidgetitem19->setText(QCoreApplication::translate("gui", "Constrast", nullptr));
         HaralickDescriptors_label_16->setText(QCoreApplication::translate("gui", "Co-ocurrence Matrix (16x16)", nullptr));
         CoOcurrenceMatrix_16->setText(QString());
-        Homogeneity_16_val->setText(QString());
-        Entropy_16->setText(QCoreApplication::translate("gui", "Entropy:", nullptr));
-        Homogeneity_16->setText(QCoreApplication::translate("gui", "Homogeneity:", nullptr));
-        Entropy_16_val->setText(QString());
-        Contras_16->setText(QCoreApplication::translate("gui", "Contrast:", nullptr));
-        Contrast_16_val->setText(QString());
+        QTableWidgetItem *___qtablewidgetitem20 = TableHaralick16->horizontalHeaderItem(0);
+        ___qtablewidgetitem20->setText(QCoreApplication::translate("gui", "Value", nullptr));
+        QTableWidgetItem *___qtablewidgetitem21 = TableHaralick16->verticalHeaderItem(0);
+        ___qtablewidgetitem21->setText(QCoreApplication::translate("gui", "Entropy", nullptr));
+        QTableWidgetItem *___qtablewidgetitem22 = TableHaralick16->verticalHeaderItem(1);
+        ___qtablewidgetitem22->setText(QCoreApplication::translate("gui", "Homogeneity", nullptr));
+        QTableWidgetItem *___qtablewidgetitem23 = TableHaralick16->verticalHeaderItem(2);
+        ___qtablewidgetitem23->setText(QCoreApplication::translate("gui", "Constrast", nullptr));
         HaralickDescriptors_label_32->setText(QCoreApplication::translate("gui", "Co-ocurrence Matrix (32x32)", nullptr));
         CoOcurrenceMatrix_32->setText(QString());
-        Homogeneity_32_val->setText(QString());
-        Entropy_32->setText(QCoreApplication::translate("gui", "Entropy:", nullptr));
-        Homogeneity_32->setText(QCoreApplication::translate("gui", "Homogeneity:", nullptr));
-        Entropy_32_val->setText(QString());
-        Contras_32->setText(QCoreApplication::translate("gui", "Contrast:", nullptr));
-        Contrast_32_val->setText(QString());
+        QTableWidgetItem *___qtablewidgetitem24 = TableHaralick32->horizontalHeaderItem(0);
+        ___qtablewidgetitem24->setText(QCoreApplication::translate("gui", "Value", nullptr));
+        QTableWidgetItem *___qtablewidgetitem25 = TableHaralick32->verticalHeaderItem(0);
+        ___qtablewidgetitem25->setText(QCoreApplication::translate("gui", "Entropy", nullptr));
+        QTableWidgetItem *___qtablewidgetitem26 = TableHaralick32->verticalHeaderItem(1);
+        ___qtablewidgetitem26->setText(QCoreApplication::translate("gui", "Homogeneity", nullptr));
+        QTableWidgetItem *___qtablewidgetitem27 = TableHaralick32->verticalHeaderItem(2);
+        ___qtablewidgetitem27->setText(QCoreApplication::translate("gui", "Constrast", nullptr));
+
+        const bool __sortingEnabled1 = TableHaralick32->isSortingEnabled();
+        TableHaralick32->setSortingEnabled(false);
+        TableHaralick32->setSortingEnabled(__sortingEnabled1);
+
         StartButton->setText(QCoreApplication::translate("gui", "START", nullptr));
         ZoomInButton->setText(QCoreApplication::translate("gui", "Zoom In", nullptr));
         ZoomOutButton->setText(QCoreApplication::translate("gui", "Zoom Out", nullptr));
