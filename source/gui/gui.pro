@@ -34,7 +34,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 INCLUDEPATH += /usr/include/opencv4
-# DEPENDPATH += /usr/include/opencv4
 
 LIBS += /usr/lib/libopencv_calib3d.so
 LIBS += /usr/lib/libopencv_core.so

@@ -116,6 +116,7 @@ void gui::viewImage() {
 
         // set image in graphic view
         OriginalImage->addPixmap(img);
+        // ui->OriginalViewer->setScene(nullptr);
         ui->OriginalViewer->setScene(OriginalImage);
         ui->OriginalViewer->fitInView(
             OriginalImage->sceneRect(), Qt::KeepAspectRatio
@@ -123,6 +124,7 @@ void gui::viewImage() {
 
         // set converted to grayscale image to graphic view
         GrayscaleImage->addPixmap(cvt_image_grayscale(selected_image));
+        // ui->GrayscaleViewer->setScene(nullptr);
         ui->GrayscaleViewer->setScene(GrayscaleImage);
         ui->GrayscaleViewer->fitInView(
             GrayscaleImage->sceneRect(), Qt::KeepAspectRatio
@@ -205,9 +207,8 @@ void gui::viewImage() {
             selected_image
         ));
 
-        hu.push_back(calculateHuMoments(
-            cvt_image_grayscale(selected_image).toImage()
-        ));
+        QImage gray_image = cvt_image_grayscale(selected_image).toImage();
+        hu.push_back(calculateHuMoments(gray_image));
 
         for(size_t i = 0; i < 7; i++) {
             ui->TableHu_G->setItem(i, 0, new QTableWidgetItem(
@@ -289,13 +290,12 @@ void gui::viewImage() {
 
 // on clicking OpenImage button (in menu File)
 void gui::on_OpenImage_triggered() {
-    on_CloseImage_triggered();
-
     // open a FileDialog to select a png or a jpg file
     QString img_path = QFileDialog::getOpenFileName(
         this, "Open File", "", tr("PNG (*.png);;JPG (*.jpg)")
     );
 
+    on_CloseImage_triggered();
     selected_image = img_path;
     viewImage();
 }
@@ -304,9 +304,36 @@ void gui::on_OpenImage_triggered() {
 void gui::on_CloseImage_triggered() {
     OriginalImage->clear();
     GrayscaleImage->clear();
-    ui->CoOcurrenceMatrix_01->clear();
     ui->GrayscaleHistogramViewer->clear();
     ui->HsvHistogramViewer->clear();
+    ui->CoOcurrenceMatrix_01->clear();
+    ui->CoOcurrenceMatrix_02->clear();
+    ui->CoOcurrenceMatrix_04->clear();
+    ui->CoOcurrenceMatrix_08->clear();
+    ui->CoOcurrenceMatrix_16->clear();
+    ui->CoOcurrenceMatrix_32->clear();
+
+    for(size_t i = 0; i < 7; i++) {
+        ui->TableHu_G->setItem(i, 0, nullptr);
+        ui->TableHu_H->setItem(i, 0, nullptr);
+        ui->TableHu_S->setItem(i, 0, nullptr);
+        ui->TableHu_V->setItem(i, 0, nullptr);
+    }
+
+    for(size_t i = 0; i < 3; i++) {
+        ui->TableHaralick01->setItem(i, 0, nullptr);
+        ui->TableHaralick02->setItem(i, 0, nullptr);
+        ui->TableHaralick04->setItem(i, 0, nullptr);
+        ui->TableHaralick08->setItem(i, 0, nullptr);
+        ui->TableHaralick16->setItem(i, 0, nullptr);
+        ui->TableHaralick32->setItem(i, 0, nullptr);
+    }
+
+    ui->ViewerPath->setText("Image path");
+    ui->ViewerSize->setText("Width X Height");
+    ui->ImageFolders->clear();
+    folder_stream.clear();
+    pic_stream.clear();
 }
 
 // on clicking ZoomIn button
@@ -382,10 +409,10 @@ void gui::on_CloseDataset_triggered() {
 // on clicking Start button (in main frame)
 void gui::on_StartButton_clicked() {
     int ready = 1;
+    on_CloseImage_triggered();
     images.clear();
     ui->ImageFolders->clear();
     loading_label->setVisible(true);
-    selected_image.clear();
 
     // get data and validate csv
     if(!dataset_path.isEmpty()
@@ -523,8 +550,8 @@ void gui::on_StartButton_clicked() {
                 QMessageBox::warning(
                     this, "Failed to load files.",
                     QString::number(failed_images.size())
-                        + " images were not found"
-                    );
+                    + " images were not found"
+                );
             }
 
             // assign combobox with the created cells folders
@@ -535,6 +562,66 @@ void gui::on_StartButton_clicked() {
 
             // });
             // watcher.setFuture(future);
+            /*
+            // generate training data
+            std::vector<std::string> header({
+                "H_Moment_1", "H_Moment_2", "H_Moment_3",
+                "H_Moment_4", "H_Moment_5","H_Moment_6", "H_Moment_7",
+                "S_Moment_1", "S_Moment_2", "S_Moment_3",
+                "S_Moment_4", "S_Moment_5","S_Moment_6", "S_Moment_7",
+                "V_Moment_1", "V_Moment_2", "V_Moment_3",
+                "V_Moment_4", "V_Moment_5","V_Moment_6", "V_Moment_7",
+                "G_Moment_1", "G_Moment_2", "G_Moment_3",
+                "G_Moment_4", "G_Moment_5","G_Moment_6", "G_Moment_7",
+                "cell_label", "cell_path"
+            });
+
+            std::vector<std::vector<std::string>> data;
+            // std::vector<std::vector<double>> data;
+            for(const QString& label : folder_stream) {
+                std::string dir = todayDirectory + "/" + label.toStdString();
+                QDir directory(QString::fromStdString(dir));
+                QStringList files = directory.entryList(QDir::Files);
+
+                // calculate the hu moments for each image
+                for(const QString& file : files) {
+                    std::vector<std::string> img_moments;
+                    // std::vector<double> img_moments;
+                    QString path = QString::fromStdString(dir) + "/" + file;
+                    std::cout << path.toStdString() << std::endl;
+                    // std::vector<std::vector<double>> hu = calculateHuMomentsHSV(
+                        // QImage(path)
+                    // );
+                    // QImage gray_image = cvt_image_grayscale(path).toImage();
+                    // hu.push_back(calculateHuMoments(gray_image));
+
+                    // for each channel, for each moment in the channel
+                    // for(size_t i = 0; i < 4; i++) for(size_t j = 0; j < 7; j++)
+                        // img_moments.push_back(std::to_string(hu[i][j]));
+                        // img_moments.push_back(hu[i][j]);
+
+                    img_moments.push_back(label.toStdString());
+                    img_moments.push_back(path.toStdString());
+                    data.push_back(img_moments);
+                }
+            }
+
+            // generate hu moments csv from header and data
+            std::ofstream out_file(
+                workspace.toStdString() + "/" + todayDate + "/moments2.csv"
+            );
+
+            std::cout << workspace.toStdString() + "/" + todayDate + "/moments.csv" << std::endl;
+
+            if(out_file.is_open()) {
+                CSV::writeCSV(out_file, header, data);
+                out_file.close();
+            } else {
+                std::cerr
+                << "Could not open the file for the Hu Moments storage"
+                << std::endl;
+            }
+            */
         }
 
         loading_label->setVisible(false);
@@ -544,8 +631,7 @@ void gui::on_StartButton_clicked() {
 // on selecting an item in ImageFolders comboBox
 void gui::on_ImageFolders_currentIndexChanged(int index) {
     QString folder = ui->ImageFolders->itemText(index);
-    selected_folder =
-        QString::fromStdString(todayDirectory) + "/" + folder;
+    selected_folder = QString::fromStdString(todayDirectory) + "/" + folder;
 
     // list pictures in the directory
     QDir directory(selected_folder);

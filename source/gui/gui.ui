@@ -250,7 +250,7 @@ background-color: palete(window);</string>
         </size>
        </property>
        <property name="text">
-        <string>HSV HISTOGRAM</string>
+        <string>HV HISTOGRAM</string>
        </property>
       </widget>
      </item>
@@ -1144,7 +1144,7 @@ background-color: palete(window);</string>
   </action>
   <action name="CloseImage">
    <property name="text">
-    <string>Close Image</string>
+    <string>Close Content</string>
    </property>
   </action>
   <action name="ImportCSV">

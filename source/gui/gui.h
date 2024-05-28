@@ -90,12 +90,5 @@ private:
     std::vector<QString> pic_stream; // list of images in the selected label
     QLabel *loading_label;
     int stream_index;
-
-    QTableWidget HaralickDescriptors_01;
-    QTableWidget HaralickDescriptors_02;
-    QTableWidget HaralickDescriptors_04;
-    QTableWidget HaralickDescriptors_08;
-    QTableWidget HaralickDescriptors_16;
-    QTableWidget HaralickDescriptors_32;
 };
 #endif // GUI_H

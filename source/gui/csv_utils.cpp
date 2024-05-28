@@ -82,23 +82,27 @@ public:
    * @param outstream [std::ostream&] out stream where to write the file
    * @return [int] 0 when succeed
   **/
-    /*int writeCSV(std::ostream& outstream) {
+    template<typename T>
+    static int writeCSV(
+        std::ostream& outstream, std::vector<std::string> header,
+        std::vector<std::vector<T>> data, char delimiter = ','
+    ) {
         for(const auto& i : header) {
-            std::cout << i;
+            outstream << i;
             if(&i != &header.back()) // if current index is not the last index
-                std::cout << delimiter;
-        } std::cout << std::endl;
+                outstream << delimiter;
+        } outstream << std::endl;
 
         for(const auto& i : data) {
             for(const auto& j : i) {
-                std::cout << j;
+                outstream << j;
                 if(&j != &i.back()) // if current index is not the last index
-                    std::cout << delimiter;
-            } std::cout << std::endl;
+                    outstream << delimiter;
+            } outstream << std::endl;
         }
 
         return 0;
-    }*/
+    }
 
     /**
    * @brief function to access specific data cell

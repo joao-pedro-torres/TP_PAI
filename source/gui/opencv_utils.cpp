@@ -55,18 +55,11 @@ QPixmap genGrayscaleHistogram(const QString img_path, int width, int height) {
     int histWidth = width;
     int histHeight = height;
     int binWidth = cvRound((double)histWidth / histSize);
-    // cv::Mat histImage(
-    //     histHeight + 20, histWidth + 50, CV_8UC3, cv::Scalar(255, 255, 255)
-    // );
+
     cv::Mat histImage(
         histHeight + 5 , histWidth, CV_8UC3, cv::Scalar(255, 255, 255)
     );
 
-    // normalize histogram
-    // cv::normalize(
-    //     histogram, histogram, 0, histImage.rows - 20,
-    //     cv::NORM_MINMAX, -1, cv::Mat()
-    // );
     cv::normalize(
         histogram, histogram, 0, histImage.rows,
         cv::NORM_MINMAX, -1, cv::Mat()
@@ -81,22 +74,6 @@ QPixmap genGrayscaleHistogram(const QString img_path, int width, int height) {
             binWidth * (i), histHeight - cvRound(histogram.at<float>(i))
         ), cv::Scalar(0, 0, 0), 2, 8, 0
     );
-
-    /*
-    // add scale to the histogram image
-    cv::putText(
-        histImage, "0", cv::Point(5, histHeight + 15),
-        cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0), 1
-    );
-    cv::putText(
-        histImage, "16", cv::Point(histWidth + 10, histHeight + 15),
-        cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0), 1
-    );
-    cv::putText(
-        histImage, "100%", cv::Point(5, 15),
-        cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0), 1
-    );
-    */
 
     // convert the histogram image to QImage
     QImage conv_img(
@@ -146,9 +123,7 @@ QPixmap genHSVHistogram(const QString img_path, int width, int height) {
     int histHeight = height;
     int binWidthH = cvRound((double)histWidth / h_bins);
     int binWidthV = cvRound((double)histHeight / v_bins);
-    // cv::Mat histImage(
-    //     histHeight + 20, histWidth + 50, CV_8UC3, cv::Scalar(255, 255, 255)
-    // );
+
     cv::Mat histImage(
         histHeight, histWidth, CV_8UC3, cv::Scalar(255, 255, 255)
     );
@@ -163,22 +138,6 @@ QPixmap genHSVHistogram(const QString img_path, int width, int height) {
             cv::Scalar::all(bin_val), -1
         );
     }
-
-    /*
-    // add scale to the histogram image
-    cv::putText(
-        histImage, "0", cv::Point(5, histHeight + 15),
-        cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0), 1
-    );
-    cv::putText(
-        histImage, "180", cv::Point(histWidth + 10, histHeight + 15),
-        cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0), 1
-    );
-    cv::putText(
-        histImage, "100%", cv::Point(5, 15),
-        cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0), 1
-    );
-    */
 
     // convert the histogram image to QImage
     QImage conv_img(
@@ -300,7 +259,7 @@ std::vector<double> calculateHuMoments(const QImage& image) {
     );
 
     // Calculate moments
-    cv::Moments moments = cv::moments(mat, true);
+    cv::Moments moments = cv::moments(mat, false);
     double huMoments[7];
     cv::HuMoments(moments, huMoments);
 
@@ -335,6 +294,53 @@ std::vector<std::vector<double>> calculateHuMomentsHSV(const QImage& image) {
 
     return huMomentsHSV;
 }
+
+// // Function to calculate the Hu moments for one channel
+// std::vector<double> calculateHuMoments(const cv::Mat& mat) {
+//     // Calculate moments
+//     cv::Moments moments = cv::moments(mat, false);
+//     double huMoments[7];
+//     cv::HuMoments(moments, huMoments);
+
+//     // Store Hu moments in a vector
+//     std::vector<double> huMomentsVec;
+//     for (size_t i = 0; i < 7; ++i) huMomentsVec.push_back(huMoments[i]);
+
+//     return huMomentsVec;
+// }
+
+// // Function to calculate Hu moments for each channel of the original HSV image
+// std::vector<std::vector<double>> calculateHuMomentsHSV(const QImage& image) {
+//     // Convert QImage to cv::Mat
+//     cv::Mat mat(
+//         image.height(), image.width(), CV_8UC4,
+//         const_cast<uchar*>(image.bits()),
+//         image.bytesPerLine()
+//     );
+
+//     if(image.isNull()) std::cout << "deu bixiu" << std::endl;
+
+//     // Convert RGBA to RGB
+//     cv::Mat rgbMat;
+//     cv::cvtColor(mat, rgbMat, cv::COLOR_RGBA2RGB);
+
+//     // Convert RGB to HSV
+//     cv::Mat hsvMat;
+//     cv::cvtColor(rgbMat, hsvMat, cv::COLOR_RGB2HSV);
+
+//     // Split HSV into channels
+//     std::vector<cv::Mat> channels;
+//     cv::split(hsvMat, channels);
+
+//     std::vector<std::vector<double>> huMomentsHSV;
+//     for (int i = 0; i < 3; ++i) {
+//         // Calculate Hu moments for each channel
+//         std::vector<double> huMoments = calculateHuMoments(channels[i]);
+//         huMomentsHSV.push_back(huMoments);
+//     }
+
+//     return huMomentsHSV;
+// }
 
 void printCSVImage(
     std::vector<CSV_Image> images, int numImages, const std::string& filename
