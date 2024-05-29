@@ -138,6 +138,11 @@ void gui::viewImage() {
             QString::number(selected_image_size)
         );
 
+        QPixmap predicted = img.scaled(
+            ui->PredictionCell->size(),  Qt::KeepAspectRatio, Qt::SmoothTransformation
+        );
+        ui->PredictionCell->setPixmap(predicted);
+
         // get label size
         QSize size_label = ui->CoOcurrenceMatrix_01->size();
 
@@ -202,7 +207,7 @@ void gui::viewImage() {
             co_ocurrence_matrices[i]->setScaledContents(Qt::KeepAspectRatio);
         }
 
-        // calculate invariant hu moments
+        // calculate hu invariant moments
         std::vector<std::vector<double>> hu = calculateHuMomentsHSV(QImage(
             selected_image
         ));
@@ -226,6 +231,23 @@ void gui::viewImage() {
         }
 
         // calculate haralick descriptors
+        std::vector<QTableWidget*> descriptors({
+            ui->TableHaralick01, ui->TableHaralick02, ui->TableHaralick04,
+            ui->TableHaralick08, ui->TableHaralick16, ui->TableHaralick32
+        });
+
+        for(size_t i = 0; i < descriptors.size(); i++) {
+            descriptors[i]->setItem(0, 0, new QTableWidgetItem(
+                QString::number(calculateEntropy(matrices[i])))
+            );
+            descriptors[i]->setItem(1, 0, new QTableWidgetItem(
+                QString::number(calculateEntropy(matrices[i])))
+            );
+            descriptors[i]->setItem(2, 0, new QTableWidgetItem(
+                QString::number(calculateEntropy(matrices[i])))
+            );
+        }
+        /*
         ui->TableHaralick01->setItem(0, 0, new QTableWidgetItem(
            QString::number(calculateEntropy(matrices[0])))
         );
@@ -285,6 +307,7 @@ void gui::viewImage() {
         ui->TableHaralick32->setItem(2, 0, new QTableWidgetItem(
            QString::number(calculateContrast(matrices[5])))
         );
+        */
     }
 }
 

@@ -13,6 +13,7 @@ SOURCES += \
     csv_utils.cpp \
     main.cpp \
     gui.cpp \
+    nn_utils.cpp \
     opencv_utils.cpp
 
 HEADERS += \
@@ -41,3 +42,9 @@ LIBS += /usr/lib/libopencv_features2d.so
 LIBS += /usr/lib/libopencv_highgui.so
 LIBS += /usr/lib/libopencv_imgcodecs.so
 LIBS += /usr/lib/libopencv_imgproc.so
+
+INCLUDEPATH += /usr/include/onnxruntime
+# LIBS += /usr/lib/libonnxruntime_providers_cuda.so
+# LIBS += /usr/lib/libonnxruntime_providers_dnnl.so
+# LIBS += /usr/lib/libonnxruntime_providers_shared.so
+LIBS += /usr/lib/libonnxruntime.so

@@ -1097,6 +1097,77 @@ background-color: palete(window);</string>
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>1470</x>
+      <y>10</y>
+      <width>181</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="Perdiction">
+     <item>
+      <widget class="QLabel" name="PredictionCell">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Shape::Panel</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTableWidget" name="PredictionTable">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <row>
+        <property name="text">
+         <string>Orig. Label</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Binary XGB</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Senary XGB</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Binary EffNet</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Senary EffNet</string>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>Value</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
