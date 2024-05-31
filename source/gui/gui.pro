@@ -11,16 +11,22 @@ QMAKE_CXXFLAGS += -std=c++17
 
 SOURCES += \
     csv_utils.cpp \
+    effnetwindow.cpp \
     main.cpp \
     gui.cpp \
     nn_utils.cpp \
-    opencv_utils.cpp
+    opencv_utils.cpp \
+    xgboostwindow.cpp
 
 HEADERS += \
-    gui.h
+    effnetwindow.h \
+    gui.h \
+    xgboostwindow.h
 
 FORMS += \
-    gui.ui
+    effnetwindow.ui \
+    gui.ui \
+    xgboostwindow.ui
 
 TRANSLATIONS += \
     gui_pt_BR.ts
@@ -48,3 +54,7 @@ INCLUDEPATH += /usr/include/onnxruntime
 # LIBS += /usr/lib/libonnxruntime_providers_dnnl.so
 # LIBS += /usr/lib/libonnxruntime_providers_shared.so
 LIBS += /usr/lib/libonnxruntime.so
+# LIBS += /usr/lib/libonnxruntime.so.1.18.0
+
+RESOURCES += \
+    resources.qrc

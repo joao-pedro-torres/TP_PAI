@@ -2,6 +2,7 @@
 #include "ui_gui.h"
 #include "csv_utils.cpp"
 #include "opencv_utils.cpp"
+#include "nn_utils.cpp"
 
 #include <chrono>
 #include <ctime>
@@ -85,6 +86,10 @@ gui::gui(QWidget *parent) : QMainWindow(parent), ui(new Ui::gui) {
     ui->TableHu_H->horizontalHeader()->setFixedHeight(20);
     ui->TableHu_S->horizontalHeader()->setFixedHeight(20);
     ui->TableHu_V->horizontalHeader()->setFixedHeight(20);
+    ui->TableHu_G->setFixedSize(110, 169);
+    ui->TableHu_H->setFixedSize(110, 169);
+    ui->TableHu_S->setFixedSize(110, 169);
+    ui->TableHu_V->setFixedSize(110, 169);
     for(size_t i = 0; i < 7; i++) {
         ui->TableHu_G->setRowHeight(i, 7);
         ui->TableHu_H->setRowHeight(i, 7);
@@ -92,6 +97,12 @@ gui::gui(QWidget *parent) : QMainWindow(parent), ui(new Ui::gui) {
         ui->TableHu_V->setRowHeight(i, 7);
     }
 
+    ui->TableHaralick01->setFixedSize(180, 83);
+    ui->TableHaralick02->setFixedSize(180, 83);
+    ui->TableHaralick04->setFixedSize(180, 83);
+    ui->TableHaralick08->setFixedSize(180, 83);
+    ui->TableHaralick16->setFixedSize(180, 83);
+    ui->TableHaralick32->setFixedSize(180, 83);
     for(size_t i = 0; i < 3; i++) {
         ui->TableHaralick01->setRowHeight(i, 27);
         ui->TableHaralick02->setRowHeight(i, 27);
@@ -100,6 +111,9 @@ gui::gui(QWidget *parent) : QMainWindow(parent), ui(new Ui::gui) {
         ui->TableHaralick16->setRowHeight(i, 27);
         ui->TableHaralick32->setRowHeight(i, 27);
     }
+
+    ui->PredictionCell->setFixedSize(190, 190);
+    ui->PredictionTable->setFixedSize(189, 173);
 }
 
 gui::~gui() {
@@ -113,18 +127,17 @@ void gui::viewImage() {
     if(!selected_image.isEmpty()) {
         // generate image
         QPixmap img(selected_image);
+        QPixmap gray_img = cvt_image_grayscale(selected_image);
 
         // set image in graphic view
         OriginalImage->addPixmap(img);
-        // ui->OriginalViewer->setScene(nullptr);
         ui->OriginalViewer->setScene(OriginalImage);
         ui->OriginalViewer->fitInView(
             OriginalImage->sceneRect(), Qt::KeepAspectRatio
         );
 
         // set converted to grayscale image to graphic view
-        GrayscaleImage->addPixmap(cvt_image_grayscale(selected_image));
-        // ui->GrayscaleViewer->setScene(nullptr);
+        GrayscaleImage->addPixmap(gray_img);
         ui->GrayscaleViewer->setScene(GrayscaleImage);
         ui->GrayscaleViewer->fitInView(
             GrayscaleImage->sceneRect(), Qt::KeepAspectRatio
@@ -212,7 +225,7 @@ void gui::viewImage() {
             selected_image
         ));
 
-        QImage gray_image = cvt_image_grayscale(selected_image).toImage();
+        QImage gray_image = gray_img.toImage();
         hu.push_back(calculateHuMoments(gray_image));
 
         for(size_t i = 0; i < 7; i++) {
@@ -247,67 +260,34 @@ void gui::viewImage() {
                 QString::number(calculateEntropy(matrices[i])))
             );
         }
-        /*
-        ui->TableHaralick01->setItem(0, 0, new QTableWidgetItem(
-           QString::number(calculateEntropy(matrices[0])))
-        );
-        ui->TableHaralick01->setItem(1, 0, new QTableWidgetItem(
-           QString::number(calculateHomogeneity(matrices[0])))
-        );
-        ui->TableHaralick01->setItem(2, 0, new QTableWidgetItem(
-           QString::number(calculateContrast(matrices[0])))
+
+        // classify image
+        size_t lastSlashPos = selected_folder.toStdString().find_last_of("/\\");
+        std::string label =
+            selected_folder.toStdString().substr(lastSlashPos + 1);
+        ui->PredictionTable->setItem(
+            0, 0, new QTableWidgetItem(QString::fromStdString(label))
         );
 
-        ui->TableHaralick02->setItem(0, 0, new QTableWidgetItem(
-           QString::number(calculateEntropy(matrices[1])))
-        );
-        ui->TableHaralick02->setItem(1, 0, new QTableWidgetItem(
-           QString::number(calculateHomogeneity(matrices[1])))
-        );
-        ui->TableHaralick02->setItem(2, 0, new QTableWidgetItem(
-           QString::number(calculateContrast(matrices[1])))
-        );
+        std::vector<double> hu_moments;
+        for(size_t i = 0; i < 4; i++) for(size_t j = 0; j < 7; j++)
+            hu_moments.push_back(hu[i][j]);
 
-        ui->TableHaralick04->setItem(0, 0, new QTableWidgetItem(
-           QString::number(calculateEntropy(matrices[2])))
-        );
-        ui->TableHaralick04->setItem(1, 0, new QTableWidgetItem(
-           QString::number(calculateHomogeneity(matrices[2])))
-        );
-        ui->TableHaralick04->setItem(2, 0, new QTableWidgetItem(
-           QString::number(calculateContrast(matrices[2])))
-        );
+        int xgboost2 = xgboost_classifier(true, hu_moments);
+        int xgboost6 = xgboost_classifier(false, hu_moments);
+        // int effnet2 = effnet_classifier(true, img.toImage());
+        // int effnet6 = effnet_classifier(false, img.toImage());
 
-        ui->TableHaralick08->setItem(0, 0, new QTableWidgetItem(
-           QString::number(calculateEntropy(matrices[3])))
-        );
-        ui->TableHaralick08->setItem(1, 0, new QTableWidgetItem(
-           QString::number(calculateHomogeneity(matrices[3])))
-        );
-        ui->TableHaralick08->setItem(2, 0, new QTableWidgetItem(
-           QString::number(calculateContrast(matrices[3])))
-        );
-
-        ui->TableHaralick16->setItem(0, 0, new QTableWidgetItem(
-           QString::number(calculateEntropy(matrices[4])))
-        );
-        ui->TableHaralick16->setItem(1, 0, new QTableWidgetItem(
-           QString::number(calculateHomogeneity(matrices[4])))
-        );
-        ui->TableHaralick16->setItem(2, 0, new QTableWidgetItem(
-           QString::number(calculateContrast(matrices[4])))
-        );
-
-        ui->TableHaralick32->setItem(0, 0, new QTableWidgetItem(
-           QString::number(calculateEntropy(matrices[5])))
-        );
-        ui->TableHaralick32->setItem(1, 0, new QTableWidgetItem(
-           QString::number(calculateHomogeneity(matrices[5])))
-        );
-        ui->TableHaralick32->setItem(2, 0, new QTableWidgetItem(
-           QString::number(calculateContrast(matrices[5])))
-        );
-        */
+        QString xgboost2_label = (xgboost2 == 0) ? "Healthy" : "Cancerous";
+        QString xgboost6_label = ui->ImageFolders->itemText(xgboost6);
+/*
+        QString effnet2_label = (effnet2 == 0) ? "Healthy" : "Cancerous";
+        QString effnet6_label = ui->ImageFolders->itemText(effnet6);
+*/
+        ui->PredictionTable->setItem(1, 0, new QTableWidgetItem(xgboost2_label));
+        ui->PredictionTable->setItem(2, 0, new QTableWidgetItem(xgboost6_label));
+        // ui->PredictionTable->setItem(3, 0, new QTableWidgetItem(effnet2_label));
+        // ui->PredictionTable->setItem(4, 0, new QTableWidgetItem(effnet6_label));
     }
 }
 
@@ -585,7 +565,7 @@ void gui::on_StartButton_clicked() {
 
             // });
             // watcher.setFuture(future);
-            /*
+/*
             // generate training data
             std::vector<std::string> header({
                 "H_Moment_1", "H_Moment_2", "H_Moment_3",
@@ -596,11 +576,10 @@ void gui::on_StartButton_clicked() {
                 "V_Moment_4", "V_Moment_5","V_Moment_6", "V_Moment_7",
                 "G_Moment_1", "G_Moment_2", "G_Moment_3",
                 "G_Moment_4", "G_Moment_5","G_Moment_6", "G_Moment_7",
-                "cell_label", "cell_path"
+                "cell_label"
             });
 
-            std::vector<std::vector<std::string>> data;
-            // std::vector<std::vector<double>> data;
+            std::vector<std::vector<double>> data; int i = 0;
             for(const QString& label : folder_stream) {
                 std::string dir = todayDirectory + "/" + label.toStdString();
                 QDir directory(QString::fromStdString(dir));
@@ -608,25 +587,24 @@ void gui::on_StartButton_clicked() {
 
                 // calculate the hu moments for each image
                 for(const QString& file : files) {
-                    std::vector<std::string> img_moments;
-                    // std::vector<double> img_moments;
+                    std::vector<double> img_moments;
                     QString path = QString::fromStdString(dir) + "/" + file;
                     std::cout << path.toStdString() << std::endl;
-                    // std::vector<std::vector<double>> hu = calculateHuMomentsHSV(
-                        // QImage(path)
-                    // );
-                    // QImage gray_image = cvt_image_grayscale(path).toImage();
-                    // hu.push_back(calculateHuMoments(gray_image));
+                    std::vector<std::vector<double>> hu = calculateHuMomentsHSV(
+                        QImage(path)
+                    );
+                    QImage gray_image = cvt_image_grayscale(path).toImage();
+                    hu.push_back(calculateHuMoments(gray_image));
 
                     // for each channel, for each moment in the channel
-                    // for(size_t i = 0; i < 4; i++) for(size_t j = 0; j < 7; j++)
-                        // img_moments.push_back(std::to_string(hu[i][j]));
-                        // img_moments.push_back(hu[i][j]);
+                    for(size_t i = 0; i < 4; i++) for(size_t j = 0; j < 7; j++)
+                        img_moments.push_back(hu[i][j]);
 
-                    img_moments.push_back(label.toStdString());
-                    img_moments.push_back(path.toStdString());
+                    img_moments.push_back(i);
                     data.push_back(img_moments);
                 }
+
+                i++;
             }
 
             // generate hu moments csv from header and data
@@ -644,7 +622,7 @@ void gui::on_StartButton_clicked() {
                 << "Could not open the file for the Hu Moments storage"
                 << std::endl;
             }
-            */
+*/
         }
 
         loading_label->setVisible(false);
@@ -683,3 +661,16 @@ void gui::on_Next_clicked() {
         viewImage();
     }
 }
+
+// on clicking EffNet on menu Models
+void gui::on_EfficientNet_triggered() {
+    eff = new EffNetWindow(this);
+    eff->show();
+}
+
+// on clicking XGBoost on menu Models
+void gui::on_XGBoost_triggered() {
+    xg = new XGBoostWindow(this);
+    xg->show();
+}
+

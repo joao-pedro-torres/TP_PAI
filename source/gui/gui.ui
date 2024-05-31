@@ -284,7 +284,7 @@ background-color: palete(window);</string>
         <number>0</number>
        </property>
        <property name="text">
-        <string/>
+        <string>HV HISTOGRAM</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -325,7 +325,7 @@ background-color: palete(window);</string>
         <number>2</number>
        </property>
        <property name="text">
-        <string/>
+        <string>GRAYSCALE HISTOGRAM</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -339,7 +339,7 @@ background-color: palete(window);</string>
      <rect>
       <x>1190</x>
       <y>10</y>
-      <width>271</width>
+      <width>261</width>
       <height>701</height>
      </rect>
     </property>
@@ -398,7 +398,7 @@ background-color: palete(window);</string>
           <number>0</number>
          </property>
          <property name="text">
-          <string/>
+          <string>MATRIX</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -494,7 +494,7 @@ background-color: palete(window);</string>
           <number>0</number>
          </property>
          <property name="text">
-          <string/>
+          <string>MATRIX</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -590,7 +590,7 @@ background-color: palete(window);</string>
           <number>0</number>
          </property>
          <property name="text">
-          <string/>
+          <string>MATRIX</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -686,7 +686,7 @@ background-color: palete(window);</string>
           <number>0</number>
          </property>
          <property name="text">
-          <string/>
+          <string>MATRIX</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -782,7 +782,7 @@ background-color: palete(window);</string>
           <number>0</number>
          </property>
          <property name="text">
-          <string/>
+          <string>MATRIX</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -878,7 +878,7 @@ background-color: palete(window);</string>
           <number>0</number>
          </property>
          <property name="text">
-          <string/>
+          <string>MATRIX</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1100,9 +1100,9 @@ background-color: palete(window);</string>
    <widget class="QWidget" name="verticalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>1470</x>
+      <x>1460</x>
       <y>10</y>
-      <width>181</width>
+      <width>191</width>
       <height>381</height>
      </rect>
     </property>
@@ -1115,11 +1115,14 @@ background-color: palete(window);</string>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="frameShape">
         <enum>QFrame::Shape::Panel</enum>
        </property>
        <property name="text">
-        <string/>
+        <string>CELL</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1133,6 +1136,9 @@ background-color: palete(window);</string>
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <row>
         <property name="text">
@@ -1161,7 +1167,7 @@ background-color: palete(window);</string>
        </row>
        <column>
         <property name="text">
-         <string>Value</string>
+         <string>Prediction</string>
         </property>
        </column>
       </widget>
@@ -1169,6 +1175,7 @@ background-color: palete(window);</string>
     </layout>
    </widget>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -1205,9 +1212,16 @@ background-color: palete(window);</string>
     <addaction name="ImportDataset"/>
     <addaction name="CloseDataset"/>
    </widget>
+   <widget class="QMenu" name="menuEffNet">
+    <property name="title">
+     <string>Models</string>
+    </property>
+    <addaction name="XGBoost"/>
+    <addaction name="EfficientNet"/>
+   </widget>
    <addaction name="menuLoad_Image"/>
+   <addaction name="menuEffNet"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="OpenImage">
    <property name="text">
     <string>Open Image</string>
@@ -1236,6 +1250,16 @@ background-color: palete(window);</string>
   <action name="CloseDataset">
    <property name="text">
     <string>Close Dataset</string>
+   </property>
+  </action>
+  <action name="XGBoost">
+   <property name="text">
+    <string>XGBoost</string>
+   </property>
+  </action>
+  <action name="EfficientNet">
+   <property name="text">
+    <string>EfficientNet</string>
    </property>
   </action>
  </widget>

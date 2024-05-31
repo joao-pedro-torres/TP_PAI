@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/models">
+        <file alias="xgboost6">modelo_xgboost_multiclass.onnx</file>
+        <file alias="xgboost2">modelo_xgboost_binary.onnx</file>
+    </qresource>
+</RCC>

@@ -19,6 +19,9 @@
 #include <QtConcurrent/QtConcurrent>
 #include <opencv2/opencv.hpp>
 
+#include "xgboostwindow.h"
+#include "effnetwindow.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class gui;
@@ -66,8 +69,14 @@ private slots:
     void on_Prev_clicked();
     void on_Next_clicked();
 
+    void on_EfficientNet_triggered();
+    void on_XGBoost_triggered();
+
 private:
     Ui::gui *ui;
+    XGBoostWindow *xg;
+    EffNetWindow *eff;
+
     // QFuture<void> future;
     // QFutureWatcher<void> watcher;
     QGraphicsScene *OriginalImage;
